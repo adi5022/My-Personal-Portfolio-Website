@@ -1,0 +1,649 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Adithyan R S - Portfolio - Grounded, thoughtful, and personal design.">
+    <title>Adithyan R S - Portfolio</title>
+
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Bungee & Inter fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="index.css">
+
+    <!-- JavaScript Interaction Logic -->
+    <script src="interaction.js" defer></script>
+</head>
+
+<body>
+    <!-- Hardware-Accelerated Interaction Canvas -->
+    <canvas id="interaction-canvas"></canvas>
+
+    <!-- Glassmorphic Top Navigation Header -->
+    <header class="site-header" id="site-header">
+        <div class="header-container">
+            <a href="#hero" class="site-logo bungee-regular" id="site-logo">A.</a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+
+            <nav class="site-nav" id="site-nav">
+                <ul class="nav-list">
+                    <li><a href="#hero" class="nav-link active">Home</a></li>
+                    <li><a href="#story" class="nav-link">My Story</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#hobbies" class="nav-link">Hobbies</a></li>
+                    <li><a href="#resume" class="nav-link resume-button" target="_blank"
+                            rel="noopener noreferrer">Resume</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Detailed Scroll-Driven Biological/Artificial Hybrid Neuron Background -->
+    <div class="neuron-bg-container" aria-hidden="true">
+        <svg id="neuron-svg" viewBox="0 0 1440 4600" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <!-- Glowing Filter for Active Axon Pathway -->
+                <filter id="glow-green" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="3" result="blur" />
+                    <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                </filter>
+
+                <!-- Glowing Filter for Central Gold Logo Centerpiece -->
+                <filter id="glow-gold" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur stdDeviation="5" result="blur" />
+                    <feColorMatrix type="matrix" values="1 0 0 0 0.77  0 1 0 0 0.65  0 0 1 0 0.50  0 0 0 1 0" />
+                    <feMerge>
+                        <feMergeNode />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                </filter>
+            </defs>
+
+            <!-- ================= SOMA & DENDRITES (Hero Section — Dual-Lobe Expressive Neuron Head) ================= -->
+            <!-- Inspired by reference: two overlapping organic lobes, branching tree dendrites -->
+
+            <!-- Outer ambient aura — soft glow behind both lobes -->
+            <ellipse cx="1100" cy="480" rx="135" ry="115" stroke="rgba(130, 148, 136, 0.05)" stroke-width="18" />
+
+            <!-- === LEFT LOBE (primary soma body) === -->
+            <!-- Outer membrane — irregular organic blob -->
+            <path id="soma-lobe-left"
+                d="M 975 480 C 978 400, 1025 358, 1088 362 C 1148 366, 1178 405, 1175 472 C 1172 540, 1138 578, 1082 575 C 1028 572, 972 558, 975 480 Z"
+                fill="none" stroke="rgba(130, 148, 136, 0.6)" stroke-width="2.4" />
+            <!-- Inner membrane (sketch double-line) -->
+            <path
+                d="M 984 480 C 987 408, 1030 370, 1088 374 C 1144 378, 1168 413, 1165 474 C 1162 536, 1132 568, 1080 565 C 1032 562, 980 550, 984 480 Z"
+                fill="none" stroke="rgba(130, 148, 136, 0.3)" stroke-width="1.2" stroke-dasharray="6 3" />
+
+            <!-- === RIGHT LOBE (secondary soma body, offset and slightly smaller) === -->
+            <path id="soma-lobe-right"
+                d="M 1068 450 C 1075 382, 1118 348, 1175 352 C 1228 356, 1258 392, 1255 455 C 1252 518, 1220 552, 1170 548 C 1118 544, 1062 520, 1068 450 Z"
+                fill="none" stroke="rgba(130, 148, 136, 0.45)" stroke-width="2.0" />
+            <!-- Inner membrane of right lobe -->
+            <path
+                d="M 1076 450 C 1082 388, 1122 358, 1174 362 C 1222 366, 1248 398, 1245 456 C 1242 514, 1214 542, 1168 538 C 1122 534, 1072 514, 1076 450 Z"
+                fill="none" stroke="rgba(130, 148, 136, 0.18)" stroke-width="1.0" stroke-dasharray="5 3" />
+
+            <!-- Lobe connection bridge — organic neck between the two cells -->
+            <path d="M 1118 405 C 1110 395, 1115 385, 1125 382 M 1118 528 C 1110 538, 1115 548, 1125 548" fill="none"
+                stroke="rgba(130, 148, 136, 0.25)" stroke-width="1.0" />
+
+            <!-- Nucleus hints inside each lobe -->
+            <circle cx="1075" cy="473" r="16" fill="none" stroke="rgba(130, 148, 136, 0.15)" stroke-width="0.9"
+                stroke-dasharray="3 2" />
+            <circle cx="1163" cy="448" r="13" fill="none" stroke="rgba(130, 148, 136, 0.12)" stroke-width="0.8"
+                stroke-dasharray="3 2" />
+
+            <!-- Navbar Connection Dendrites — simple clean lines from soma apex to nav links -->
+            <g stroke="rgba(130, 148, 136, 0.32)" stroke-width="1.1">
+                <line x1="1290" y1="80" x2="1215" y2="360" />
+                <circle cx="1290" cy="78" r="2.8" fill="#a2b49e" opacity="0.65" />
+
+                <line x1="1205" y1="80" x2="1190" y2="358" />
+                <circle cx="1205" cy="78" r="2.8" fill="#a2b49e" opacity="0.65" />
+
+                <line x1="1110" y1="80" x2="1130" y2="358" />
+                <circle cx="1110" cy="78" r="2.8" fill="#a2b49e" opacity="0.65" />
+
+                <line x1="990" y1="80" x2="1058" y2="375" />
+                <circle cx="990" cy="78" r="2.8" fill="#a2b49e" opacity="0.65" />
+
+                <line x1="890" y1="80" x2="998" y2="400" />
+                <circle cx="890" cy="78" r="2.8" fill="#a2b49e" opacity="0.65" />
+            </g>
+
+            <!-- Heavy/Dense Dendrite Input Branches (Artificial/Biological Hybrid Paths) -->
+            <g stroke="rgba(130, 148, 136, 0.45)" stroke-width="1.8">
+                <!-- Top Right Arborization -->
+                <path d="M 1115 380 C 1130 310, 1190 270, 1240 220" />
+                <path d="M 1190 270 C 1235 240, 1285 240, 1320 220 M 1240 220 C 1270 190, 1310 200, 1345 175" />
+
+                <!-- Bottom Right Arborization -->
+                <path d="M 1220 490 C 1285 500, 1340 550, 1390 570" />
+                <path d="M 1340 550 C 1375 570, 1410 560, 1445 580 M 1390 570 C 1420 595, 1450 590, 1475 615" />
+
+                <!-- Top Left Arborization (Crosses vertical split divider!) -->
+                <path d="M 1030 395 C 1000 320, 920 280, 870 220" />
+                <path d="M 920 280 C 895 245, 860 255, 830 220 M 870 220 C 840 180, 800 200, 770 160" />
+
+                <!-- Horizontal Left Arborization (Crosses divider into Hero Left!) -->
+                <path d="M 980 485 C 880 470, 780 440, 700 440" />
+                <path d="M 780 440 C 700 390, 620 380, 520 360" />
+                <path d="M 700 440 C 620 480, 540 500, 440 510" />
+                <path d="M 520 360 C 440 340, 360 330, 300 320" stroke-width="1.0" opacity="0.6" />
+                <path d="M 440 510 C 380 520, 320 530, 220 540" stroke-width="1.0" opacity="0.6" />
+
+                <!-- Bottom Left Arborization -->
+                <path d="M 985 530 C 940 590, 860 630, 790 680" />
+                <path d="M 860 630 C 820 660, 785 640, 745 680" />
+                <path d="M 790 680 C 690 730, 580 770, 440 810" stroke-width="1.0" opacity="0.5" />
+                <path d="M 745 680 C 640 730, 530 770, 260 820" stroke-width="1.0" opacity="0.5" />
+
+                <!-- Network Interconnection Nodes (Artificial/Biological Hybrid Vibe) -->
+                <circle cx="300" cy="320" r="4.5" fill="#a2b49e" filter="url(#glow-green)" />
+                <circle cx="220" cy="540" r="4.5" fill="#a2b49e" filter="url(#glow-green)" />
+                <circle cx="440" cy="810" r="4.5" fill="#a2b49e" filter="url(#glow-green)" />
+                <circle cx="260" cy="820" r="4.5" fill="#a2b49e" filter="url(#glow-green)" />
+            </g>
+
+            <!-- Enlarged Embossed Gold Geometric Double-A Logo — at the lobe junction -->
+            <g filter="url(#glow-gold)" opacity="0.85" id="soma-logo">
+                <circle cx="1118" cy="462" r="58" stroke="#c5a880" stroke-width="2.0" fill="none" />
+                <circle cx="1118" cy="462" r="51" stroke="#c5a880" stroke-width="1.0" stroke-dasharray="5 3"
+                    fill="none" />
+                <!-- Upright Triangle (A) -->
+                <path d="M 1118 412 L 1076 506 L 1160 506 Z" stroke="#c5a880" stroke-width="2.0" fill="none" />
+                <line x1="1090" y1="478" x2="1146" y2="478" stroke="#c5a880" stroke-width="1.6" />
+                <!-- Inverted Triangle (Inverted A) -->
+                <path d="M 1118 512 L 1076 418 L 1160 418 Z" stroke="#c5a880" stroke-width="1.6" opacity="0.55"
+                    fill="none" />
+                <line x1="1090" y1="446" x2="1146" y2="446" stroke="#c5a880" stroke-width="1.3" opacity="0.55" />
+            </g>
+
+            <!-- ================= AXON PATHWAY (Growth System) ================= -->
+            <!-- Enlarged Myelin Sheath Wedges (Glow cyber-blue/white when scroll progress reaches them) -->
+            <!-- Hero / Intro Slide Segments -->
+            <rect id="myelin-1" class="myelin-segment" x="880" y="463" width="120" height="40" rx="10" />
+            <rect id="myelin-2" class="myelin-segment" x="730" y="463" width="120" height="40" rx="10" />
+            <rect id="myelin-3" class="myelin-segment" x="580" y="466" width="120" height="40" rx="10" />
+
+            <!-- Story Slide Segments -->
+            <path id="myelin-4" class="myelin-segment"
+                d="M 460 630 C 435 655, 435 725, 460 750 L 500 750 C 525 725, 525 655, 500 630 Z" />
+            <path id="myelin-5" class="myelin-segment"
+                d="M 440 870 C 415 895, 415 965, 440 990 L 480 990 C 505 965, 505 895, 480 870 Z" />
+            <path id="myelin-6" class="myelin-segment"
+                d="M 485 1240 C 460 1265, 460 1335, 485 1360 L 525 1360 C 550 1335, 550 1265, 525 1240 Z" />
+
+            <!-- Skills Slide Segments -->
+            <path id="myelin-7" class="myelin-segment"
+                d="M 500 1670 C 475 1695, 475 1765, 500 1790 L 540 1790 C 565 1765, 565 1695, 540 1670 Z" />
+            <rect id="myelin-8" class="myelin-segment" x="500" y="1950" width="40" height="100" rx="10" />
+
+            <!-- Projects Slide Segments -->
+            <rect id="myelin-9" class="myelin-segment" x="430" y="2350" width="40" height="100" rx="10" />
+            <rect id="myelin-10" class="myelin-segment" x="420" y="2700" width="40" height="100" rx="10" />
+            <rect id="myelin-11" class="myelin-segment" x="340" y="3050" width="40" height="100" rx="10" />
+
+            <!-- Hobbies Slide Segments -->
+            <rect id="myelin-12" class="myelin-segment" x="345" y="3500" width="40" height="100" rx="10" />
+            <rect id="myelin-13" class="myelin-segment" x="360" y="3850" width="40" height="100" rx="10" />
+
+            <!-- Contact Slide Segment -->
+            <rect id="myelin-14" class="myelin-segment" x="440" y="4150" width="40" height="100" rx="10" />
+
+            <!-- The Main Axon Core (Scroll-driven path that grows and glows) -->
+            <path id="axon-grow-path"
+                d="M 1030 483 L 750 483 C 580 483, 500 520, 480 610 L 460 900 C 450 1100, 440 1200, 490 1350 L 530 1600 C 560 1850, 520 2000, 470 2150 L 450 2550 C 430 2800, 390 2900, 360 3150 L 360 3500 Q 360 3850, 460 4100 L 460 4350"
+                stroke="#829488" stroke-width="2.8" stroke-linecap="round" filter="url(#glow-green)" />
+
+            <!-- Secondary overlapping fiber to give "pencil sketch" line doubling -->
+            <path id="axon-sketch-double"
+                d="M 1030 485 L 750 485 C 578 485, 498 522, 478 612 L 458 852 C 448 972, 438 1082, 488 1202 L 528 1452 C 558 1602, 518 1802, 468 2002 L 448 2402 C 428 2702, 388 3002, 358 3402 L 358 3502 Q 358 3852, 458 4102 L 458 4352"
+                stroke="rgba(130, 148, 136, 0.25)" stroke-width="1.2" stroke-linecap="round" />
+
+            <!-- Collateral Axon Branches branching out at major sections -->
+            <!-- Section: Story Branch (triggers at y = 1350) -->
+            <path class="neural-branch" id="branch-story"
+                d="M 490 1350 Q 320 1380, 240 1420 M 320 1380 Q 280 1400, 210 1410" />
+            <!-- Section: Skills Branch (triggers at y = 2150) -->
+            <path class="neural-branch" id="branch-skills"
+                d="M 470 2150 Q 350 2200, 240 2240 M 350 2200 Q 310 2220, 220 2235" />
+            <!-- Section: Projects Branch (triggers at y = 2900) -->
+            <path class="neural-branch" id="branch-projects"
+                d="M 390 2900 Q 260 3000, 200 3100 M 310 2980 Q 260 3050, 180 3080" />
+            <!-- Section: Hobbies Branch (triggers at y = 3500) -->
+            <path class="neural-branch" id="branch-hobbies"
+                d="M 360 3500 Q 280 3600, 220 3680 M 300 3580 Q 260 3620, 200 3655" />
+
+            <!-- Section: Contact Synaptic Arborization (The End Network triggers at y = 4350) -->
+            <g class="neural-branch" id="branch-contact">
+                <path d="M 460 4350 C 430 4400, 360 4430, 280 4470" />
+                <path d="M 460 4350 C 480 4410, 540 4450, 620 4490" />
+                <path d="M 460 4350 C 450 4420, 420 4470, 410 4530" />
+
+                <!-- Synaptic Terminals Buttons (Glow circles at end of fibers) -->
+                <circle cx="280" cy="4470" r="5" fill="#a2b49e" filter="url(#glow-green)" />
+                <circle cx="620" cy="4490" r="5" fill="#a2b49e" filter="url(#glow-green)" />
+                <circle cx="410" cy="4530" r="5" fill="#a2b49e" filter="url(#glow-green)" />
+            </g>
+
+            <!-- ================= DEEP LEARNING SCHEMATIC ANNOTATIONS (Moved to Left Panel to Avoid Text Interference) ================= -->
+            <g class="notebook-label">
+                <!-- Activation Function Core (Right of Soma, out of text bounds) -->
+                <text x="1230" y="475" text-anchor="middle">f(x) = σ(Wᵀx + b)</text>
+
+                <!-- Input Tensors / Feature vector (Hero left column) -->
+                <text x="90" y="350">INPUT FEATURE TENSORS [x₁...xₙ]</text>
+                <line x1="80" y1="358" x2="320" y2="358" />
+
+                <!-- Gradient Descent / Backprop (Story left column) -->
+                <text x="90" y="1400">GRADIENT DESCENT / BACKPROPAGATION</text>
+                <text x="90" y="1420">∂L/∂W = ∂L/&#8706;a · ∂a/&#8706;z · ∂z/&#8706;W</text>
+                <line x1="80" y1="1428" x2="350" y2="1428" />
+
+                <!-- Optimizer State (Skills left column) -->
+                <text x="90" y="2200">OPTIMIZER: ADAM STATE (η = 0.001)</text>
+                <text x="90" y="2220">θ_t = θ_t-1 - η · m̂_t / (√v̂_t + ε)</text>
+                <line x1="80" y1="2228" x2="330" y2="2228" />
+
+                <!-- Weight Update (Projects left column) -->
+                <text x="90" y="2950">WEIGHT UPDATE TENSORS</text>
+                <text x="90" y="2970">W^(l) ← W^(l) - α · ∇_(W^(l)) L</text>
+                <line x1="80" y1="2978" x2="290" y2="2978" />
+
+                <!-- Output Layer / Activations (Contact left column) -->
+                <text x="90" y="4300">OUTPUT TENSOR ACTIVATIONS</text>
+                <text x="90" y="4320">ŷ = softmax(Wᵀh + b)</text>
+                <line x1="80" y1="4328" x2="260" y2="4328" />
+            </g>
+        </svg>
+    </div>
+
+    <!-- Neuron Interaction Zone + Info Popup (positioned over soma area, triggers on hover) -->
+    <div class="soma-hover-zone" id="soma-hover-zone" aria-hidden="true">
+        <div class="soma-popup" id="soma-popup">
+            <div class="soma-popup-line"></div>
+            <div class="soma-popup-content">
+                <span class="soma-popup-label">SOMA</span>
+                <span class="soma-popup-value">Adithyan R S</span>
+                <span class="soma-popup-sub">AI · Builder · Composer</span>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================= -->
+    <!-- CONTENT LAYER                                                 -->
+    <!-- ============================================================= -->
+    <main class="hero-container" id="hero">
+        <section class="hero-left" id="hero-left">
+            <h1 class="hero-title bungee-regular" id="hero-title">
+                <span class="title-word" id="word-adis">Adi's</span>
+                <span class="title-word" id="word-portfolio">Portfolio</span>
+            </h1>
+        </section>
+        <section class="hero-right" id="hero-right">
+            <!-- Custom fun introduction replacing previous generic tagline -->
+            <div class="hero-tagline-container">
+                <p class="hero-intro-text">
+                    I’m an <span class="highlight-text">Artificial Intelligence</span> student mapping the pathways of
+                    <span class="highlight-text">Deep Learning</span> & <span class="highlight-text">Neural
+                        Networks</span>.
+                </p>
+                <p class="hero-bio-text">
+                    A 4th-year student who thrives on a hands-on approach to learning—building, breaking, and
+                    understanding systems. By day, I translate complex neural architectures into digital code; by night,
+                    I shape soundscapes as a <span class="highlight-text">music producer</span> and weave narratives as
+                    a <span class="highlight-text">writer</span>.
+                </p>
+                <a href="#story" class="hero-cta-button bungee-regular">[Explore Biography]</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scrollable Portfolio Sections (Aligning to Asymmetric Split Grid) -->
+    <div class="sections-wrapper" id="sections-wrapper">
+
+        <!-- My Story Section (Updated with Resume Details) -->
+        <section class="portfolio-section" id="story">
+            <div class="section-left">
+                <h2 class="section-label bungee-regular">[My Story]</h2>
+            </div>
+            <div class="section-right">
+                <div class="section-content-box">
+                    <div class="story-profile">
+                        <h3 class="subsection-title bungee-regular">Profile</h3>
+                        <p class="section-text">
+                            Third-year Computer Science (AI) undergraduate who builds things at the intersection of
+                            rigorous science and working software. My projects range from a cardiovascular digital twin
+                            grounded in peer-reviewed clinical literature to a MIDI-to-Carnatic converter that exists
+                            because I am both a programmer and a music composer. I gravitate toward problems that demand
+                            more than running a model — evidence-based design, clean architecture, and ideas genuinely
+                            worth building.
+                        </p>
+                    </div>
+
+                    <div class="story-education">
+                        <h3 class="subsection-title bungee-regular">Education</h3>
+                        <div class="education-timeline">
+                            <div class="education-item">
+                                <div class="education-meta">
+                                    <span class="education-year">2023 – Present</span>
+                                    <h4 class="education-school">Mar Baselios College of Engineering & Technology</h4>
+                                </div>
+                                <p class="education-degree">B.Tech — Computer Science and Engineering (AI) ·
+                                    Thiruvananthapuram</p>
+                            </div>
+                            <div class="education-item">
+                                <div class="education-meta">
+                                    <span class="education-year">2020 – 2022</span>
+                                    <h4 class="education-school">Loyola School, Sreekariyam</h4>
+                                </div>
+                                <p class="education-degree">Higher Secondary — Bio-Mathematics with Minor in AI</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section (Updated from Resume Skills) -->
+        <section class="portfolio-section" id="skills">
+            <div class="section-left">
+                <h2 class="section-label bungee-regular">[Skills]</h2>
+            </div>
+            <div class="section-right">
+                <div class="section-content-box">
+                    <div class="skills-block">
+                        <h3 class="subsection-title bungee-regular">Core Skills</h3>
+                        <ul class="skills-grid">
+                            <li><strong>Languages</strong>: Python, C, C++, Java, JavaScript, C#</li>
+                            <li><strong>AI / ML</strong>: Computer Vision, OpenCV, scikit-learn, Gradient Boosting, AI
+                                Agents</li>
+                            <li><strong>Tools</strong>: PyQt6, Plotly, Tkinter, Socket Programming, HTML/CSS</li>
+                            <li><strong>CS Core</strong>: Data Structures & Algorithms, OOP, Operating Systems</li>
+                        </ul>
+                    </div>
+
+                    <div class="certifications-block">
+                        <h3 class="subsection-title bungee-regular">Certifications</h3>
+                        <ul class="certs-list">
+                            <li>
+                                <span class="cert-title">AI Agent Architect</span>
+                                <span class="cert-issuer">IBM SkillsBuild</span>
+                                <span class="cert-date">Aug 2025</span>
+                            </li>
+                            <li>
+                                <span class="cert-title">CS50 Introduction to Python</span>
+                                <span class="cert-issuer">Harvard University (edX)</span>
+                                <span class="cert-date">May 2024</span>
+                            </li>
+                            <li>
+                                <span class="cert-title">Mobile App Development with Flutter</span>
+                                <span class="cert-issuer">Infosys Springboard</span>
+                                <span class="cert-date">Oct 2024</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section (Updated from Resume Projects) -->
+        <section class="portfolio-section" id="projects">
+            <div class="section-left">
+                <h2 class="section-label bungee-regular">[Projects]</h2>
+            </div>
+            <div class="section-right">
+                <div class="section-content-box">
+                    <div class="projects-list">
+                        <!-- Project 1: FlowState AI -->
+                        <article class="project-item">
+                            <div class="project-header">
+                                <h3 class="project-title bungee-regular">FlowState AI</h3>
+                                <span class="project-tech">Python · PyQt6 · scikit-learn · Plotly · Gemini / Groq</span>
+                            </div>
+                            <p class="project-tagline">Patient-specific cardiovascular digital twin for hypertension
+                                progression modelling</p>
+                            <ul class="project-details">
+                                <li>Simulates blood pressure trajectory, kidney function (eGFR) decline, and survival
+                                    probability year-by-year over 30 years from 10 clinical inputs — every coefficient
+                                    traceable to peer-reviewed literature.</li>
+                                <li>Designed a two-layer Partial Linear Model for eGFR: explicit clinical equations
+                                    (age, sex, sodium load) layered with a Gradient Boosting residual — achieving CV R²
+                                    of 0.957.</li>
+                                <li>Built ACE Inhibitor intervention with probabilistic adverse-effect simulation;
+                                    renders treated vs. untreated divergence via interactive Plotly charts with a
+                                    year-slider.</li>
+                                <li>Integrated ARIA, an LLM chatbot (Gemini / Groq backend), for interpreting simulation
+                                    results in plain language inside the PyQt6 GUI.</li>
+                            </ul>
+                            <a href="https://github.com/adi5022/flow-state-AI" class="nav-link" target="_blank"
+                                rel="noopener noreferrer">[GitHub Repository]</a>
+                        </article>
+
+                        <!-- Project 2: MIDI to Carnatic Converter -->
+                        <article class="project-item">
+                            <div class="project-header">
+                                <h3 class="project-title bungee-regular">MIDI to Carnatic Converter</h3>
+                                <span class="project-tech">Python · Tkinter · mido · pygame</span>
+                            </div>
+                            <p class="project-tagline">Bridging Western MIDI notation and South Indian classical music
+                                tradition</p>
+                            <ul class="project-details">
+                                <li>Translates MIDI sequences into Carnatic swaras with automatic note mapping, duration
+                                    analysis, and rule-based raga identification (Mohanam, Kalyani, and others).</li>
+                                <li>Polished Tkinter GUI with dark mode, selectable tonic, real-time playback controls,
+                                    and one-click export — built out of genuine curiosity as a music composer.</li>
+                            </ul>
+                            <a href="https://github.com/adithy7n/midi-to-carnatic-converter" class="nav-link"
+                                target="_blank" rel="noopener noreferrer">[GitHub Repository]</a>
+                        </article>
+
+                        <!-- Project 3: Smart Multi-Device Surveillance -->
+                        <article class="project-item">
+                            <div class="project-header">
+                                <h3 class="project-title bungee-regular">Smart Multi-Device Surveillance System</h3>
+                                <span class="project-tech">Python · OpenCV · Socket Programming</span>
+                            </div>
+                            <p class="project-tagline">Real-time multi-camera system connecting smartphone cameras over
+                                shared Wi-Fi</p>
+                            <ul class="project-details">
+                                <li>Real-time multi-camera system connecting smartphone cameras over shared Wi-Fi via
+                                    custom socket architecture with automatic screen integration and dynamic
+                                    disconnection handling.</li>
+                                <li>Motion filtering and object detection with bounding boxes for reliable lightweight
+                                    activity tracking.</li>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hobbies Section (Updated from Resume Interests) -->
+        <section class="portfolio-section" id="hobbies">
+            <div class="section-left">
+                <h2 class="section-label bungee-regular">[Hobbies]</h2>
+            </div>
+            <div class="section-right">
+                <div class="section-content-box">
+                    <p class="section-text">
+                        When I'm not writing code or building deep learning models, I am active as a music producer,
+                        shaping South Indian classical and Western music compositions. I'm also a writer of fiction and
+                        articles, and I enjoy building IoT & embedded systems.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section (Updated from Resume Details) -->
+        <section class="portfolio-section" id="contact">
+            <div class="section-left">
+                <h2 class="section-label bungee-regular">[Contact]</h2>
+            </div>
+            <div class="section-right">
+                <div class="section-content-box">
+                    <p class="section-text">Interested in discussing AI architectures, neural representations, or
+                        collaborative code? Let's connect.</p>
+
+                    <!-- Contact Directory — vanilla telephone sketch integrated into neuron ecosystem -->
+                    <div class="phonebook-widget">
+                        <svg class="phone-outline-svg" viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg">
+                            <!-- === DESK PHONE BODY — simple organic rectangle with rounded personality === -->
+                            <!-- Main body outline -->
+                            <rect x="20" y="80" width="280" height="120" rx="18" ry="18" fill="none"
+                                stroke="rgba(130, 148, 136, 0.55)" stroke-width="2.0" />
+                            <!-- Inner body sketch line (double-line character) -->
+                            <rect x="28" y="88" width="264" height="104" rx="13" ry="13" fill="none"
+                                stroke="rgba(130, 148, 136, 0.2)" stroke-width="0.9" stroke-dasharray="5 3" />
+
+                            <!-- === SCREEN / DISPLAY AREA === -->
+                            <rect x="36" y="96" width="145" height="52" rx="6" fill="rgba(6, 11, 8, 0.7)"
+                                stroke="rgba(130, 148, 136, 0.4)" stroke-width="1.2" />
+
+
+                            <!-- === KEYPAD (3x4 grid of circles — minimal sketch style) === -->
+                            <!-- Row 1 -->
+                            <g fill="none" stroke="rgba(130, 148, 136, 0.4)" stroke-width="1.1">
+                                <circle cx="200" cy="111" r="8" /><text x="200" y="114" font-family="Bungee, sans-serif"
+                                    font-size="6" fill="rgba(130,148,136,0.7)" text-anchor="middle">1</text>
+                                <circle cx="222" cy="111" r="8" /><text x="222" y="114" font-family="Bungee, sans-serif"
+                                    font-size="6" fill="rgba(130,148,136,0.7)" text-anchor="middle">2</text>
+                                <circle cx="244" cy="111" r="8" /><text x="244" y="114" font-family="Bungee, sans-serif"
+                                    font-size="6" fill="rgba(130,148,136,0.7)" text-anchor="middle">3</text>
+                            </g>
+                            <!-- Row 2 -->
+                            <g fill="none" stroke="rgba(130, 148, 136, 0.35)" stroke-width="1.0">
+                                <circle cx="200" cy="133" r="8" /><text x="200" y="136" font-family="Bungee, sans-serif"
+                                    font-size="6" fill="rgba(130,148,136,0.6)" text-anchor="middle">4</text>
+                                <circle cx="222" cy="133" r="8" /><text x="222" y="136" font-family="Bungee, sans-serif"
+                                    font-size="6" fill="rgba(130,148,136,0.6)" text-anchor="middle">5</text>
+                                <circle cx="244" cy="133" r="8" /><text x="244" y="136" font-family="Bungee, sans-serif"
+                                    font-size="6" fill="rgba(130,148,136,0.6)" text-anchor="middle">6</text>
+                            </g>
+                            <!-- Row 3 -->
+                            <g fill="none" stroke="rgba(130, 148, 136, 0.3)" stroke-width="0.9">
+                                <circle cx="200" cy="155" r="8" /><text x="200" y="158" font-family="Bungee, sans-serif"
+                                    font-size="6" fill="rgba(130,148,136,0.5)" text-anchor="middle">7</text>
+                                <circle cx="222" cy="155" r="8" /><text x="222" y="158" font-family="Bungee, sans-serif"
+                                    font-size="6" fill="rgba(130,148,136,0.5)" text-anchor="middle">8</text>
+                                <circle cx="244" cy="155" r="8" /><text x="244" y="158" font-family="Bungee, sans-serif"
+                                    font-size="6" fill="rgba(130,148,136,0.5)" text-anchor="middle">9</text>
+                            </g>
+                            <!-- Row 4 -->
+                            <g fill="none" stroke="rgba(130, 148, 136, 0.3)" stroke-width="0.9">
+                                <circle cx="200" cy="177" r="8" /><text x="200" y="180" font-family="Bungee, sans-serif"
+                                    font-size="6" fill="rgba(130,148,136,0.5)" text-anchor="middle">*</text>
+                                <circle cx="222" cy="177" r="8" /><text x="222" y="180" font-family="Bungee, sans-serif"
+                                    font-size="6" fill="rgba(130,148,136,0.5)" text-anchor="middle">0</text>
+                                <circle cx="244" cy="177" r="8" stroke="rgba(0,240,255,0.4)" /><text x="244" y="180"
+                                    font-family="Bungee, sans-serif" font-size="6" fill="rgba(0,240,255,0.6)"
+                                    text-anchor="middle">#</text>
+                            </g>
+
+                            <!-- === HANDSET — organic curved shape, gold accent === -->
+                            <!-- Handset body -->
+                            <path d="M 318 72 C 312 52, 348 42, 368 58 C 382 70, 372 98, 356 112
+                                     C 348 120, 347 136, 356 144
+                                     C 372 158, 382 186, 368 198 C 348 214, 312 204, 318 184
+                                     C 328 160, 338 140, 318 114 C 308 100, 310 82, 318 72 Z" fill="none"
+                                stroke="rgba(197, 168, 128, 0.7)" stroke-width="2.0" />
+                            <!-- Handset inner sketch double-line -->
+                            <path d="M 325 78 C 320 62, 350 54, 364 66 C 374 76, 365 100, 352 112
+                                     C 345 119, 344 138, 352 146
+                                     C 365 158, 374 182, 364 194 C 350 206, 320 198, 325 178
+                                     C 334 156, 344 138, 325 114 C 317 104, 318 86, 325 78 Z" fill="none"
+                                stroke="rgba(197, 168, 128, 0.22)" stroke-width="0.8" stroke-dasharray="4 3" />
+                            <!-- Earpiece -->
+                            <ellipse cx="346" cy="84" rx="11" ry="7" fill="none" stroke="rgba(197, 168, 128, 0.45)"
+                                stroke-width="1.0" />
+                            <!-- Mouthpiece -->
+                            <ellipse cx="346" cy="186" rx="11" ry="7" fill="none" stroke="rgba(197, 168, 128, 0.45)"
+                                stroke-width="1.0" />
+                            <!-- Grip lines on handset neck -->
+                            <g stroke="rgba(130, 148, 136, 0.3)" stroke-width="0.7">
+                                <line x1="330" y1="128" x2="360" y2="128" />
+                                <line x1="330" y1="134" x2="360" y2="134" />
+                                <line x1="330" y1="140" x2="360" y2="140" />
+                            </g>
+                            <!-- Handset logo — small double-triangle -->
+                            <path d="M 344 124 L 336 138 L 352 138 Z" fill="none" stroke="rgba(197, 168, 128, 0.4)"
+                                stroke-width="0.9" />
+                            <path d="M 344 143 L 336 129 L 352 129 Z" fill="none" stroke="rgba(197, 168, 128, 0.28)"
+                                stroke-width="0.8" opacity="0.6" />
+
+                            <!-- Cradle notch on body where handset rests -->
+                            <path d="M 295 90 C 305 80, 315 84, 316 95" fill="none" stroke="rgba(130, 148, 136, 0.4)"
+                                stroke-width="1.2" />
+                            <path d="M 295 178 C 305 188, 315 184, 316 173" fill="none"
+                                stroke="rgba(130, 148, 136, 0.4)" stroke-width="1.2" />
+
+                            <!-- Annotation labels — same style as neuron notebook-label -->
+                            <g fill="rgba(130, 148, 136, 0.28)" font-family="Inter, sans-serif" font-size="4.5"
+                                font-weight="400" letter-spacing="0.08em">
+                                <text x="155" y="77" text-anchor="middle">NEURO-INTERFACE TERMINAL</text>
+                                <line x1="155" y1="80" x2="155" y2="90" stroke="rgba(130,148,136,0.15)"
+                                    stroke-width="0.7" />
+                                <text x="344" y="220" text-anchor="middle">SYNAPTIC HANDSET RECEIVER</text>
+                            </g>
+                        </svg>
+
+                        <!-- Contact Directory — styled HTML below the sketch -->
+                        <div class="contact-directory">
+                            <div class="directory-item active" data-index="1" data-label="EMAIL"
+                                data-value="adirs5022@gmail.com">
+
+                                <span class="directory-label bungee-regular">[1] MAIL:</span>
+                                <a href="mailto:adirs5022@gmail.com" class="directory-value">
+                                    adirs5022@gmail.com
+                                </a>
+                            </div>
+
+                            <div class="directory-item" data-index="2" data-label="PHONE" data-value="+919746654062">
+
+                                <span class="directory-label bungee-regular">[2] CALL:</span>
+                                <a href="tel:+919746654062" class="directory-value">
+                                    +91 97466 54062
+                                </a>
+                            </div>
+
+                            <div class="directory-item" data-index="3" data-label="LINKEDIN"
+                                data-value="linkedin.com/in/adimbcet">
+
+                                <span class="directory-label bungee-regular">[3] LINK:</span>
+                                <a href="https://linkedin.com/in/adimbcet" target="_blank" rel="noopener noreferrer"
+                                    class="directory-value">
+                                    linkedin.com/in/adimbcet
+                                </a>
+                            </div>
+
+                            <div class="directory-item" data-index="4" data-label="GITHUB"
+                                data-value="github.com/adi5022">
+
+                                <span class="directory-label bungee-regular">[4] CODE:</span>
+                                <a href="https://github.com/adi5022" target="_blank" rel="noopener noreferrer"
+                                    class="directory-value">
+                                    github.com/adi5022
+                                </a>
+                            </div>
+                        </div>
+</body>
+
+</html>

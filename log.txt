@@ -1,0 +1,94 @@
+================================================================================
+ADI'S PORTFOLIO - DEVELOPMENT LOG
+================================================================================
+
+2026-06-24 - Project Initialization
+----------------------------------
+- Initialized workspace structure.
+- Created instructions/ directory and organized behavioral guidelines:
+  - CLAUDE.md (LLM caution rules)
+  - SITE_STRUCTURE_AND_EVALUATION_RULES.md (site anatomy and feature reviews)
+  - project_constitution.md (incremental build stages)
+- Created main development log: log.txt.
+
+2026-06-24 - Technology Stack Decision & Cleanup
+------------------------------------------------
+- Attempted local portable Node.js setup to compile React/TS/Tailwind per initial requirements.
+- Reverted to static HTML5, Vanilla CSS, and Vanilla JS at user request to ensure speed and simple deployability.
+- Cleaned up .node/ directory and removed temporary technological_direction.md to keep workspace clean.
+
+2026-06-24 - Stage 1 Hero Foundation & Aesthetics
+-------------------------------------------------
+- Created index.html and index.css with an asymmetric split screen design.
+- Implemented core color palette:
+  - --bg-left: #101714 (Deep Pine Dark Green)
+  - --bg-right: #15221b (Slightly Lighter Warm Forest Green)
+  - --divider-color: #21332a (Subtle divider border)
+  - --text-primary: #d5ded7 (Sage-tinted Off-White)
+  - --text-muted: #829488 (Muted Sage Green)
+- Configured typography:
+  - Font family: "Bungee" (Display serif-less bold font).
+  - Staggered lines: "ADI'S" on line 1, "PORTFOLIO" on line 2 in muted color.
+  - Sizing equalized to clamp(2.8rem, 8vw, 5.0rem).
+- Added background texture using a custom inline SVG fractal noise overlay at 2% opacity for a matte-paper feel.
+- Configured entry animations using pure CSS keyframes (slide-in from left, fade-in, blur-reduction) with staggered delays (0.2s / 0.4s).
+
+2026-06-24 - Stage 1 Performance Optimizations & Interactive Canvas
+-------------------------------------------------------------------
+- Created interaction.js with hardware-accelerated Canvas drawing system:
+  - Dual custom cursor (ring + inner dot follower) utilizing linear interpolation (lerp) for smooth easing behind mouse coordinates.
+  - Mouse-trail particle emitter spawning rotating, fading, and rising binary strings ('0' and '1') behind pointer movements.
+  - Name-hover spark physics emitter spitting circular particles on cursor tracking.
+- Resolved rendering lag:
+  - Corrected canvas width/height scaling bug (canvas.height = height * dpr instead of width * dpr).
+  - Optimised render loop by caching ctx.font string assignments outside loops, scaling particles via context scale matrices instead of font size string changes.
+  - Added a 25ms spawn throttle in name-hover event listeners to handle high polling rates (1000Hz gaming mice) and prevent frame drops.
+  - Added touch-capability bypass to disable trails on mobile screens.
+
+2026-06-24 - Stage 2 Navigation Header & Responsive Layout
+----------------------------------------------------------
+- Added sticky header element in index.html.
+- Implemented glassmorphic bar (backdrop-filter: blur(12px)) in index.css.
+- Added nav list elements: Home, My Story, Skills, Projects, Hobbies, Resume (outline button), and Contact.
+- Created active underline reveal animations on link hover.
+- Created mobile responsive collapsed layout (<768px viewports) displaying an animated hamburger toggle and full-screen menu drawer.
+- Integrated cursor snapping logic in interaction.js: cursor ring smoothly expands from 8px to 20px and glows when hovering over navigation links.
+
+2026-06-24 - Interactive Split Panel Animations
+----------------------------------------------
+- Configured left vertical panel (.hero-left) to support interactive sliding animations on hover.
+- Set base width to 35vw and minimum width constraint to 430px.
+- Configured hover rule expanding left panel width to 42vw and min-width to 500px, sliding the divider border and compressing the right-hand panel.
+- Verified visual transitions and responsive layouts using browser subagent audits.
+
+2026-06-24 - Stage 3 Interactive Neuron Background & Custom Biography
+- Added layout wrappers and placeholder content boxes for story, skills, projects, hobbies, and contact in index.html.
+- Swapped the generic slogan in the hero panel with a personalized biography describing the user's focus on AI, deep learning, music production, and writing.
+- Embedded a detailed, biological vector SVG containing a cell body (soma), dendrites, myelin sheaths, collateral axons, and anatomical text labels to serve as a background schematic.
+- Extended the background SVG height coordinates down to 4600px, spanning across all sections.
+- Re-aligned side branching arbors to align with Story (y=1350), Skills (y=2150), Projects (y=2950), Hobbies (y=3750), and Contact (y=4350).
+- Configured a glowing gold double-A outline logo centerpiece inside the cell body.
+- Applied responsive grid layouts in index.css: sidebar section labels on the left pane and scrollable content on the right. Set mobile media query rules to stack column blocks vertically.
+- Fixed html/body height limit bug by changing height: 100% to min-height: 100vh and position: relative. This enables the background overlay container to stretch dynamically to the full scroll height of the page.
+- Configured glow drop shadows (#glow-green and #glow-gold) using SVG filter tags.
+- Programmed scroll-driven growth logic in interaction.js:
+  - Updates stroke-dashoffset of the main axon and secondary sketch lines as scroll fraction progresses.
+  - Sprouts side collateral branches dynamically when their respective section offsets are reached.
+  - Spawns glowing canvas neural signal particles at the soma cell body which travel along the active pathways. Coordinates are translated (drawY = pt.y - window.scrollY) to handle page scrolls.
+- Verified visual path drawing, glowing signals, biography text, and layout responsiveness using browser subagent scroll audits.
+
+2026-06-24 - Upgraded Background Neuron & Phonebook Contact Widget
+------------------------------------------------------------------
+- Relocated and scaled the neuron cell body (soma) to the upper-right corner of the Hero section (x=1220, y=250) to prevent tagline and biography text interference.
+- Created organic-biological branching fibers connecting from the relocated cell body directly to top navbar links (Home, Story, Skills, Projects, Hobbies, Resume, Contact) with glowing terminal nodes.
+- Redesigned left columns (.hero-left and .section-left) to use translucent backgrounds (rgba(16, 23, 20, 0.88) with backdrop-filter: blur(10px)) so the neuron branches show through.
+- Distributed 14 myelin sheaths along the entire vertical page scroll length (through all sections).
+- Implemented automated sample-point path checking in interaction.js to dynamically activate myelin segments precisely when the green scroll growth line reaches their centers.
+- Applied intense double drop-shadows (neon blue + bright white center) for myelin active glow.
+- Moved background deep learning annotations to the left column margins behind section labels and lowered opacity to 0.12, resolving reading interference.
+- Integrated skeuomorphic telephone directory directory panel in the Contact section:
+  - Phone Screen displaying speed dials (Mail, Call, LinkedIn, Github).
+  - 12-key telephone dial pad supporting click interactions.
+  - Custom DTMF frequency beep sound generator utilizing Web Audio API.
+  - Dial button click automatically opening/activating the active speed dial anchor links.
+- Verified and documented layout and interactions via automated subagent browser scroll walkthroughs and screen recordings.
