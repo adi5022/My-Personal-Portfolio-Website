@@ -792,11 +792,11 @@ body::before {
 .contact-directory {
     position: absolute;
 
-    left: 48px;
-    top: 108px;
+    left: 62px;
+    top: 125px;
 
-    width: 125px;
-    height: 70px;
+    width: 150px;
+    height: 100px;
 
     z-index: 5;
 
@@ -809,10 +809,6 @@ body::before {
     overflow: hidden;
 }
 
-.contact-directory {
-    pointer-events: none;
-}
-
 .directory-item {
     pointer-events: none;
 }
@@ -820,9 +816,8 @@ body::before {
 .phone-status-bar {
     position: absolute;
 
-    left: 48px;
-    top: 55px;
-
+    left: 60px;
+    top: 18px;
     width: 220px;
 
     display: flex;
@@ -839,13 +834,14 @@ body::before {
 
 .screen-header {
     display: flex;
-
     justify-content: space-between;
     align-items: center;
 
-    margin-bottom: 6px;
+    margin-bottom: 4px;
+    padding-bottom: 3px;
+
     border-bottom: 1px dashed rgba(130, 148, 136, 0.2);
-    padding-bottom: 0.1rem;
+
     flex-shrink: 0;
 }
 
@@ -866,8 +862,9 @@ body::before {
 .directory-list {
     display: flex;
     flex-direction: column;
-    gap: 0;
-    margin-top: 0;
+
+    gap: 2px;
+    margin-top: 2px;
 }
 
 .directory-item {
