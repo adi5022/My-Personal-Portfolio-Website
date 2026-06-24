@@ -92,3 +92,17 @@ ADI'S PORTFOLIO - DEVELOPMENT LOG
   - Custom DTMF frequency beep sound generator utilizing Web Audio API.
   - Dial button click automatically opening/activating the active speed dial anchor links.
 - Verified and documented layout and interactions via automated subagent browser scroll walkthroughs and screen recordings.
+
+2026-06-24 - Biological Neuron Redesign & Telephone Keypad Wiring
+-----------------------------------------------------------------
+- Redesigned background neuron cell body (soma) to be a single organic structure with a centralized, futuristic "AR" monogram vector path logo.
+- Reconfigured dendritic arborizations to branch naturally and organic, removing direct linear connectors to top navigation header links.
+- Programmed a continuous breathing pulse glow animation cycle (lavender purple and white glows) for the soma body and dendrites.
+- Amplified spacing dimensions (vertical section heights to 95vh, restricted content widths to 620px) to mimic zoomed-out visual composition and provide background paths with open breathing room.
+- Synchronized path growth rate to 1.05 to ensure axon path reaches full activation at page bottom.
+- Wired phone keypad SVG circles and texts into `<g class="key-button">` tags. Mapped speed dials 1-4 and action indicators (* for clear, # for dial).
+- Integrated cursor hover ring snapping listener to target keypad buttons.
+- Prepend .screen-header elements inside HTML directory screen for SPEED DIAL title and dynamic status updates.
+- Simplified speed-dial contact screen list, hiding raw values (email, phone, URLs) and leaving only clean directory items ([1] MAIL, etc.) with functional backend routing intact.
+- Removed specific layout paragraph starting with "Interested in discussing..." from contact section.
+- Captured and saved reference state screenshots to the screenshots/ directory.

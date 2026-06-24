@@ -183,7 +183,7 @@
     let cursorRingAlpha = 0.35;
 
     function setupLinkHoverListeners() {
-        const links = document.querySelectorAll('a, button');
+        const links = document.querySelectorAll('a, button, .key-button');
         links.forEach(link => {
             link.addEventListener('mouseenter', () => { isHoveringLink = true; });
             link.addEventListener('mouseleave', () => { isHoveringLink = false; });
@@ -266,7 +266,7 @@
     function updateAxonGrowth(scrollFraction) {
         // Amplify scroll fraction for earlier path activation — user sees illumination in real-time
         // Cap at 1.0 so it doesn't overshoot at page bottom
-        const amplified = Math.min(scrollFraction * 1.55, 1.0);
+        const amplified = Math.min(scrollFraction * 1.05, 1.0);
 
         if (axonPath && pathLength) {
             const drawOffset = pathLength * (1 - amplified);
@@ -364,7 +364,7 @@
                 neuralPulses.push({
                     t: 0,
                     speed: randomRange(0.002, 0.005),
-                    radius: randomRange(2.5, 4.5)
+                    radius: randomRange(3.5, 6.0)
                 });
             }
 
@@ -392,7 +392,7 @@
                     ctx.arc(drawX, drawY, pulse.radius, 0, Math.PI * 2);
                     ctx.fillStyle = '#d5ded7';
                     ctx.shadowColor = '#a2b49e';
-                    ctx.shadowBlur = 8;
+                    ctx.shadowBlur = 14;
                     ctx.fill();
                     ctx.restore();
                 } catch (e) {
