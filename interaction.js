@@ -125,7 +125,7 @@
     }
 
     // Enable custom cursor styles in CSS
-    document.body.classList.add('has-custom-cursor');
+    //document.body.classList.add('has-custom-cursor');
 
     // 3. Setup Canvas & Context
     const canvas = document.getElementById('interaction-canvas');
@@ -332,21 +332,6 @@
         });
     });
 
-    // 10b. Soma Interaction Zone — hover to illuminate neuron head + show popup
-    const somaZone = document.getElementById('soma-hover-zone');
-    const somaPopup = document.getElementById('soma-popup');
-    const neuronSvg = document.getElementById('neuron-svg');
-
-    if (somaZone) {
-        somaZone.addEventListener('mouseenter', () => {
-            if (neuronSvg) neuronSvg.classList.add('soma-active');
-            if (somaPopup) somaPopup.classList.add('visible');
-        });
-        somaZone.addEventListener('mouseleave', () => {
-            if (neuronSvg) neuronSvg.classList.remove('soma-active');
-            if (somaPopup) somaPopup.classList.remove('visible');
-        });
-    }
 
     // 11. Main Animation Loop
     function updateAndDraw() {
@@ -606,7 +591,17 @@
                             if (phoneStatus) {
                                 phoneStatus.innerText = 'CONNECTED';
                             }
-                            link.click();
+                            const href = link.getAttribute('href');
+
+                            if (href.startsWith('mailto:')) {
+                                window.location.href = href;
+                            }
+                            else if (href.startsWith('tel:')) {
+                                window.location.href = href;
+                            }
+                            else {
+                                window.open(href, '_blank');
+                            }
                         }, 600);
                     }
                 } else {
