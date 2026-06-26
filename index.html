@@ -7,29 +7,175 @@
     <meta name="description" content="Adithyan R S - Portfolio - Grounded, thoughtful, and personal design.">
     <title>Adithyan R S - Portfolio</title>
 
-    <!-- Google Fonts Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Bungee & Inter fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
 
-    <!-- Stylesheet -->
     <link rel="stylesheet" href="index.css">
 
-    <!-- JavaScript Interaction Logic -->
     <script src="interaction.js" defer></script>
 </head>
 
 <body>
-    <!-- Hardware-Accelerated Interaction Canvas -->
+    <div class="neuron-bg-container" aria-hidden="true">
+        <svg id="neuron-svg" viewBox="0 0 1440 4600" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <filter id="glow-green" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="3" result="blur" />
+                    <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                </filter>
+
+                <filter id="glow-gold" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur stdDeviation="5" result="blur" />
+                    <feColorMatrix type="matrix" values="1 0 0 0 0.77  0 1 0 0 0.65  0 0 1 0 0.50  0 0 0 1 0" />
+                    <feMerge>
+                        <feMergeNode />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                </filter>
+
+                <filter id="glow-purple" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur stdDeviation="4" result="blur" />
+                    <feColorMatrix type="matrix"
+                        values="0.75 0 0 0 0.75  0 0.52 0 0 0.52  0 0.99 0 0 0.99  0 0 0 1 0" />
+                    <feMerge>
+                        <feMergeNode />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                </filter>
+
+                <filter id="organic-edge" x="-20%" y="-20%" width="140%" height="140%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="3" result="noise">
+                        <animate attributeName="baseFrequency" values="0.015;0.02;0.015" dur="8s"
+                            repeatCount="indefinite" />
+                    </feTurbulence>
+                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="12" xChannelSelector="R"
+                        yChannelSelector="G" />
+                </filter>
+            </defs>
+
+            <circle cx="1118" cy="462" r="160" fill="rgba(192, 132, 252, 0.03)" filter="url(#glow-purple)" />
+            <ellipse cx="1118" cy="462" rx="170" ry="145" stroke="rgba(192, 132, 252, 0.04)" stroke-width="18"
+                fill="none" />
+
+            <path id="soma-body"
+                d="M 1118 350 C 1195 350, 1240 395, 1240 462 C 1240 530, 1190 575, 1250 575 C 1040 575, 995 525, 995 462 C 995 395, 1045 350, 1250 350 Z"
+                fill="rgba(16, 23, 20, 0.82)" stroke="#c084fc" stroke-width="2.5" />
+
+            <path id="soma-inner"
+                d="M 1118 402 C 1152 402, 1174 422, 1174 462 C 1174 500, 1148 520, 1118 520 C 1080 520, 1062 496, 1062 462 C 1062 424, 1086 402, 1118 402 Z"
+                fill="none" stroke="rgba(192, 132, 252, 0.35)" stroke-width="1.2" stroke-dasharray="5 3" />
+
+            <circle cx="1250" cy="462" r="55" fill="rgba(192, 132, 252, 0.08)" stroke="rgba(192, 132, 252, 0.25)"
+                stroke-width="1.0" stroke-dasharray="3 2" />
+
+            <g opacity="0.18">
+                <path d="M1080 430 Q1118 455 1155 430" stroke="#d8b4fe" stroke-width="0.4" />
+                <path d="M1086 450 Q1118 470 1150 450" stroke="#d8b4fe" stroke-width="0.4" />
+                <path d="M1082 475 Q1118 445 1158 485" stroke="#d8b4fe" stroke-width="0.4" />
+                <path d="M1090 495 Q1118 470 1148 500" stroke="#d8b4fe" stroke-width="0.4" />
+                <path d="M1098 420 Q1120 500 1142 420" stroke="#d8b4fe" stroke-width="0.4" />
+                <path d="M1078 460 Q1118 460 1160 460" stroke="#d8b4fe" stroke-width="0.4" />
+            </g>
+
+            <g id="procedural-dendrites" filter="url(#glow-purple)" class="dendrite-bg"></g>
+
+            <path id="axon-root" d="M 1118 565 C 1110 650, 1080 483, 1030 483" fill="none" stroke="#a855f7"
+                stroke-width="3" />
+            <path
+                d="M 1118 390 C 1160 385, 1190 420, 1185 465 C 1180 510, 1140 530, 1118 525 C 1060 520, 1030 490, 1035 450 C 1040 410, 1070 400, 1118 390 Z"
+                fill="rgba(192, 132, 252, 0.2)" stroke="rgba(216, 180, 254, 0.6)" stroke-width="2"
+                stroke-dasharray="10 8" />
+
+            <circle cx="1118" cy="462" r="28" fill="#d8b4fe" opacity="0.95" filter="url(#glow-purple)" />
+            </g>
+
+
+            <rect id="myelin-1" class="myelin-segment" x="880" y="463" width="120" height="40" rx="10" />
+            <rect id="myelin-2" class="myelin-segment" x="730" y="463" width="120" height="40" rx="10" />
+            <rect id="myelin-3" class="myelin-segment" x="580" y="466" width="120" height="40" rx="10" />
+
+            <path id="myelin-4" class="myelin-segment"
+                d="M 460 630 C 435 655, 435 725, 460 750 L 500 750 C 525 725, 525 655, 500 630 Z" />
+            <path id="myelin-5" class="myelin-segment"
+                d="M 440 870 C 415 895, 415 965, 440 990 L 480 990 C 505 965, 505 895, 480 870 Z" />
+            <path id="myelin-6" class="myelin-segment"
+                d="M 485 1240 C 460 1265, 460 1335, 485 1360 L 525 1360 C 550 1335, 550 1265, 525 1240 Z" />
+
+            <path id="myelin-7" class="myelin-segment"
+                d="M 500 1670 C 475 1695, 475 1765, 500 1790 L 540 1790 C 565 1765, 565 1695, 540 1670 Z" />
+            <rect id="myelin-8" class="myelin-segment" x="500" y="1950" width="40" height="100" rx="10" />
+
+            <rect id="myelin-9" class="myelin-segment" x="430" y="2350" width="40" height="100" rx="10" />
+            <rect id="myelin-10" class="myelin-segment" x="420" y="2700" width="40" height="100" rx="10" />
+            <rect id="myelin-11" class="myelin-segment" x="340" y="3050" width="40" height="100" rx="10" />
+
+            <rect id="myelin-12" class="myelin-segment" x="345" y="3500" width="40" height="100" rx="10" />
+            <rect id="myelin-13" class="myelin-segment" x="360" y="3850" width="40" height="100" rx="10" />
+
+            <rect id="myelin-14" class="myelin-segment" x="440" y="4150" width="40" height="100" rx="10" />
+
+            <path id="axon-grow-path"
+                d="M 1030 483 L 750 483 C 580 483, 500 520, 480 610 L 460 900 C 450 1100, 440 1200, 490 1350 L 530 1600 C 560 1850, 520 2000, 470 2150 L 450 2550 C 430 2800, 390 2900, 360 3150 L 360 3500 Q 360 3850, 460 4100 L 460 4350"
+                stroke="#829488" stroke-width="2.8" stroke-linecap="round" filter="url(#glow-green)" />
+
+            <path id="axon-sketch-double"
+                d="M 1030 485 L 750 485 C 578 485, 498 522, 478 612 L 458 852 C 448 972, 438 1082, 488 1202 L 528 1452 C 558 1602, 518 1802, 468 2002 L 448 2402 C 428 2702, 388 3002, 358 3402 L 358 3502 Q 358 3852, 458 4102 L 458 4352"
+                stroke="rgba(130, 148, 136, 0.25)" stroke-width="1.2" stroke-linecap="round" />
+
+            <path class="neural-branch" id="branch-story"
+                d="M 490 1350 Q 320 1380, 240 1420 M 320 1380 Q 280 1400, 210 1410" />
+            <path class="neural-branch" id="branch-skills"
+                d="M 470 2150 Q 350 2200, 240 2240 M 350 2200 Q 310 2220, 220 2235" />
+            <path class="neural-branch" id="branch-projects"
+                d="M 390 2900 Q 260 3000, 200 3100 M 310 2980 Q 260 3050, 180 3080" />
+            <path class="neural-branch" id="branch-hobbies"
+                d="M 360 3500 Q 280 3600, 220 3680 M 300 3580 Q 260 3620, 200 3655" />
+
+            <g class="neural-branch" id="branch-contact">
+                <path d="M 460 4350 C 430 4400, 360 4430, 280 4470" />
+                <path d="M 460 4350 C 480 4410, 540 4450, 620 4490" />
+                <path d="M 460 4350 C 450 4420, 420 4470, 410 4530" />
+
+                <circle cx="280" cy="4470" r="5" fill="#a2b49e" filter="url(#glow-green)" />
+                <circle cx="620" cy="4490" r="5" fill="#a2b49e" filter="url(#glow-green)" />
+                <circle cx="410" cy="4530" r="5" fill="#a2b49e" filter="url(#glow-green)" />
+            </g>
+
+            <g class="notebook-label">
+                <text x="1230" y="475" text-anchor="middle">f(x) = σ(Wᵀx + b)</text>
+
+                <text x="90" y="350">INPUT FEATURE TENSORS [x₁...xₙ]</text>
+                <line x1="80" y1="358" x2="320" y2="358" />
+
+                <text x="90" y="1400">GRADIENT DESCENT / BACKPROPAGATION</text>
+                <text x="90" y="1420">∂L/∂W = ∂L/&#8706;a · ∂a/&#8706;z · ∂z/&#8706;W</text>
+                <line x1="80" y1="1428" x2="350" y2="1428" />
+
+                <text x="90" y="2200">OPTIMIZER: ADAM STATE (η = 0.001)</text>
+                <text x="90" y="2220">θ_t = θ_t-1 - η · m̂_t / (√v̂_t + ε)</text>
+                <line x1="80" y1="2228" x2="330" y2="2228" />
+
+                <text x="90" y="2950">WEIGHT UPDATE TENSORS</text>
+                <text x="90" y="2970">W^(l) ← W^(l) - α · ∇_(W^(l)) L</text>
+                <line x1="80" y1="2978" x2="290" y2="2978" />
+
+                <text x="90" y="4300">OUTPUT TENSOR ACTIVATIONS</text>
+                <text x="90" y="4320">ŷ = softmax(Wᵀh + b)</text>
+                <line x1="80" y1="4328" x2="260" y2="4328" />
+            </g>
+        </svg>
+    </div>
     <canvas id="interaction-canvas"></canvas>
 
-    <!-- Glassmorphic Top Navigation Header -->
     <header class="site-header" id="site-header">
         <div class="header-container">
-            <a href="#hero" class="site-logo bungee-regular" id="site-logo">A.</a>
+            <a href="#hero" class="site-logo bungee-regular" id="site-logo"></a>
 
             <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
                 <span class="hamburger-bar"></span>
@@ -52,283 +198,9 @@
         </div>
     </header>
 
-    <!-- Detailed Scroll-Driven Biological/Artificial Hybrid Neuron Background -->
-    <div class="neuron-bg-container" aria-hidden="true">
-        <svg id="neuron-svg" viewBox="0 0 1440 4600" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <!-- Glowing Filter for Active Axon Pathway -->
-                <filter id="glow-green" x="-20%" y="-20%" width="140%" height="140%">
-                    <feGaussianBlur stdDeviation="3" result="blur" />
-                    <feMerge>
-                        <feMergeNode in="blur" />
-                        <feMergeNode in="SourceGraphic" />
-                    </feMerge>
-                </filter>
-
-                <!-- Glowing Filter for Central Gold Logo Centerpiece -->
-                <filter id="glow-gold" x="-30%" y="-30%" width="160%" height="160%">
-                    <feGaussianBlur stdDeviation="5" result="blur" />
-                    <feColorMatrix type="matrix" values="1 0 0 0 0.77  0 1 0 0 0.65  0 0 1 0 0.50  0 0 0 1 0" />
-                    <feMerge>
-                        <feMergeNode />
-                        <feMergeNode in="SourceGraphic" />
-                    </feMerge>
-                </filter>
-
-                <!-- Glowing Filter for Purple Active Elements -->
-                <filter id="glow-purple" x="-30%" y="-30%" width="160%" height="160%">
-                    <feGaussianBlur stdDeviation="4" result="blur" />
-                    <feColorMatrix type="matrix"
-                        values="0.75 0 0 0 0.75  0 0.52 0 0 0.52  0 0.99 0 0 0.99  0 0 0 1 0" />
-                    <feMerge>
-                        <feMergeNode />
-                        <feMergeNode in="SourceGraphic" />
-                    </feMerge>
-                </filter>
-            </defs>
-
-            <!-- ================= SOMA & DENDRITES (Hero Section — Single Lobe Biological Neuron Head) ================= -->
-            <!-- Outer ambient aura — soft glow behind the soma -->
-            <ellipse cx="1118" cy="462" rx="120" ry="100" stroke="rgba(192, 132, 252, 0.04)" stroke-width="18"
-                fill="none" />
-
-            <!-- === SOMA (Single Biological Cell Body) === -->
-            <path id="soma-body"
-                d="M 1118 394 C 1160 394, 1184 416, 1184 462 C 1184 508, 1156 530, 1118 530 C 1074 530, 1052 502, 1052 462 C 1052 418, 1078 394, 1118 394 Z"
-                fill="rgba(16, 23, 20, 0.82)" stroke="#c084fc" stroke-width="2.5" />
-            <path id="soma-inner"
-                d="M 1118 402 C 1152 402, 1174 422, 1174 462 C 1174 500, 1148 520, 1118 520 C 1080 520, 1062 496, 1062 462 C 1062 424, 1086 402, 1118 402 Z"
-                fill="none" stroke="rgba(192, 132, 252, 0.35)" stroke-width="1.2" stroke-dasharray="5 3" />
-            <circle cx="1118" cy="462" r="32" fill="rgba(192, 132, 252, 0.08)" stroke="rgba(192, 132, 252, 0.25)"
-                stroke-width="1.0" stroke-dasharray="3 2" />
 
 
 
-            <!-- Dendritic Arborizations (Organic biological structure, soft purple theme) -->
-            <g class="dendrite-group" stroke="rgba(192, 132, 252, 0.55)" stroke-width="1.6" fill="none"
-                filter="url(#glow-purple)">
-
-                <!-- Top Right Arborization -->
-                <path d="M 1165 408 Q 1182 390 1174 368 Q 1168 348 1194 333 Q 1218 320 1212 296" />
-                <path d="M 1212 296 Q 1226 286 1224 266" stroke-width="0.9" opacity="0.7" />
-                <path d="M 1212 296 Q 1220 312 1238 316" stroke-width="0.9" opacity="0.7" />
-                <path d="M 1194 333 Q 1216 340 1232 358 Q 1246 374 1268 370" stroke-width="1.1" opacity="0.85" />
-                <path d="M 1268 370 Q 1284 364 1294 350" stroke-width="0.8" opacity="0.65" />
-                <path d="M 1174 368 Q 1196 378 1206 398 Q 1214 414 1236 416" stroke-width="1.1" opacity="0.85" />
-                <path d="M 1236 416 Q 1254 414 1264 400" stroke-width="0.8" opacity="0.65" />
-
-                <!-- Bottom Right Arborization -->
-                <path d="M 1165 516 Q 1182 534 1174 556 Q 1168 576 1194 591 Q 1218 604 1212 628" />
-                <path d="M 1212 628 Q 1226 638 1224 658" stroke-width="0.9" opacity="0.7" />
-                <path d="M 1212 628 Q 1220 612 1238 608" stroke-width="0.9" opacity="0.7" />
-                <path d="M 1194 591 Q 1216 584 1232 566 Q 1246 550 1268 554" stroke-width="1.1" opacity="0.85" />
-                <path d="M 1268 554 Q 1284 560 1294 574" stroke-width="0.8" opacity="0.65" />
-                <path d="M 1174 556 Q 1196 546 1206 526 Q 1214 510 1236 508" stroke-width="1.1" opacity="0.85" />
-                <path d="M 1236 508 Q 1254 510 1264 524" stroke-width="0.8" opacity="0.65" />
-
-                <!-- Top Left Arborization -->
-                <path d="M 1071 408 Q 1054 390 1062 368 Q 1068 348 1042 333 Q 1018 320 1024 296" />
-                <path d="M 1024 296 Q 1010 286 1012 266" stroke-width="0.9" opacity="0.7" />
-                <path d="M 1024 296 Q 1016 312 998 316" stroke-width="0.9" opacity="0.7" />
-                <path d="M 1042 333 Q 1020 340 1004 358 Q 990 374 968 370" stroke-width="1.1" opacity="0.85" />
-                <path d="M 968 370 Q 952 364 942 350" stroke-width="0.8" opacity="0.65" />
-                <path d="M 1062 368 Q 1040 378 1030 398 Q 1022 414 1000 416" stroke-width="1.1" opacity="0.85" />
-                <path d="M 1000 416 Q 982 414 972 400" stroke-width="0.8" opacity="0.65" />
-
-                <!-- Bottom Left Arborization -->
-                <path d="M 1071 516 Q 1054 534 1062 556 Q 1068 576 1042 591 Q 1018 604 1024 628" />
-                <path d="M 1024 628 Q 1010 638 1012 658" stroke-width="0.9" opacity="0.7" />
-                <path d="M 1024 628 Q 1016 612 998 608" stroke-width="0.9" opacity="0.7" />
-                <path d="M 1042 591 Q 1020 584 1004 566 Q 990 550 968 554" stroke-width="1.1" opacity="0.85" />
-                <path d="M 968 554 Q 952 560 942 574" stroke-width="0.8" opacity="0.65" />
-                <path d="M 1062 556 Q 1040 546 1030 526 Q 1022 510 1000 508" stroke-width="1.1" opacity="0.85" />
-                <path d="M 1000 508 Q 982 510 972 524" stroke-width="0.8" opacity="0.65" />
-
-                <!-- Additional biological branches: top spike + faint downward stub -->
-                <path d="M 1118 394 Q 1138 356 1112 326 Q 1098 308 1160 250" />
-                <path d="M 1160 250 Q 1172 238 1168 220" stroke-width="0.8" opacity="0.65" />
-                <path d="M 1160 250 Q 1148 240 1152 222" stroke-width="0.8" opacity="0.65" />
-                <path d="M 1118 394 Q 1098 356 1124 326 Q 1138 308 1060 250" />
-                <path d="M 1060 250 Q 1048 238 1052 220" stroke-width="0.8" opacity="0.65" />
-                <path d="M 1060 250 Q 1072 240 1068 222" stroke-width="0.8" opacity="0.65" />
-                <path d="M 1118 530 Q 1140 570, 1150 610" opacity="0.5" />
-                <path d="M 1150 610 Q 1162 622 1158 638" stroke-width="0.8" opacity="0.4" />
-                <!-- SECONDARY FRACTAL DENDRITES -->
-
-                <!-- TOP RIGHT -->
-                <path d="M 1232 358 Q 1262 340 1290 310" stroke-width="0.8" opacity="0.7" />
-                <path d="M 1290 310 Q 1315 292 1340 275" stroke-width="0.6" opacity="0.6" />
-                <path d="M 1290 310 Q 1320 320 1345 340" stroke-width="0.6" opacity="0.6" />
-
-                <path d="M 1206 398 Q 1238 420 1266 448" stroke-width="0.8" opacity="0.7" />
-                <path d="M 1266 448 Q 1288 470 1315 488" stroke-width="0.6" opacity="0.6" />
-                <path d="M 1266 448 Q 1298 442 1322 430" stroke-width="0.6" opacity="0.6" />
-
-                <!-- BOTTOM RIGHT -->
-                <path d="M 1232 566 Q 1265 590 1292 620" stroke-width="0.8" opacity="0.7" />
-                <path d="M 1292 620 Q 1320 645 1345 660" stroke-width="0.6" opacity="0.6" />
-                <path d="M 1292 620 Q 1320 615 1348 600" stroke-width="0.6" opacity="0.6" />
-
-                <path d="M 1206 526 Q 1242 508 1278 488" stroke-width="0.8" opacity="0.7" />
-                <path d="M 1278 488 Q 1305 470 1338 455" stroke-width="0.6" opacity="0.6" />
-                <path d="M 1278 488 Q 1310 500 1340 520" stroke-width="0.6" opacity="0.6" />
-
-                <!-- TOP LEFT -->
-                <path d="M 1004 358 Q 974 340 946 310" stroke-width="0.8" opacity="0.7" />
-                <path d="M 946 310 Q 920 292 894 275" stroke-width="0.6" opacity="0.6" />
-                <path d="M 946 310 Q 918 320 892 340" stroke-width="0.6" opacity="0.6" />
-
-                <path d="M 1030 398 Q 996 420 968 448" stroke-width="0.8" opacity="0.7" />
-                <path d="M 968 448 Q 944 470 918 488" stroke-width="0.6" opacity="0.6" />
-                <path d="M 968 448 Q 936 442 910 430" stroke-width="0.6" opacity="0.6" />
-
-                <!-- BOTTOM LEFT -->
-                <path d="M 1004 566 Q 972 590 944 620" stroke-width="0.8" opacity="0.7" />
-                <path d="M 944 620 Q 918 645 892 660" stroke-width="0.6" opacity="0.6" />
-                <path d="M 944 620 Q 918 615 888 600" stroke-width="0.6" opacity="0.6" />
-
-                <path d="M 1030 526 Q 996 508 960 488" stroke-width="0.8" opacity="0.7" />
-                <path d="M 960 488 Q 934 470 904 455" stroke-width="0.6" opacity="0.6" />
-                <path d="M 960 488 Q 928 500 898 520" stroke-width="0.6" opacity="0.6" />
-
-                <!-- UPPER CANOPY -->
-                <path d="M 1160 250 Q 1195 215 1228 180" stroke-width="0.8" opacity="0.7" />
-                <path d="M 1228 180 Q 1255 150 1275 115" stroke-width="0.6" opacity="0.6" />
-                <path d="M 1228 180 Q 1205 145 1185 110" stroke-width="0.6" opacity="0.6" />
-
-                <path d="M 1060 250 Q 1020 215 990 180" stroke-width="0.8" opacity="0.7" />
-                <path d="M 990 180 Q 965 145 940 115" stroke-width="0.6" opacity="0.6" />
-                <path d="M 990 180 Q 1015 145 1035 110" stroke-width="0.6" opacity="0.6" />
-                <!-- Synaptic tips at each dendrite ending -->
-                <g fill="rgba(192, 132, 252, 0.6)" stroke="none">
-                    <circle cx="1224" cy="266" r="1.6" />
-                    <circle cx="1238" cy="316" r="1.6" />
-                    <circle cx="1294" cy="350" r="1.6" />
-                    <circle cx="1264" cy="400" r="1.6" />
-                    <circle cx="1224" cy="658" r="1.6" />
-                    <circle cx="1238" cy="608" r="1.6" />
-                    <circle cx="1294" cy="574" r="1.6" />
-                    <circle cx="1264" cy="524" r="1.6" />
-                    <circle cx="1012" cy="266" r="1.6" />
-                    <circle cx="998" cy="316" r="1.6" />
-                    <circle cx="942" cy="350" r="1.6" />
-                    <circle cx="972" cy="400" r="1.6" />
-                    <circle cx="1012" cy="658" r="1.6" />
-                    <circle cx="998" cy="608" r="1.6" />
-                    <circle cx="942" cy="574" r="1.6" />
-                    <circle cx="972" cy="524" r="1.6" />
-                    <circle cx="1168" cy="220" r="1.6" />
-                    <circle cx="1152" cy="222" r="1.6" />
-                    <circle cx="1052" cy="220" r="1.6" />
-                    <circle cx="1068" cy="222" r="1.6" />
-                    <circle cx="1158" cy="638" r="1.6" />
-                </g>
-            </g>
-
-            <!-- ================= AXON PATHWAY (Growth System) ================= -->
-            <!-- Enlarged Myelin Sheath Wedges (Glow cyber-blue/white when scroll progress reaches them) -->
-            <!-- Hero / Intro Slide Segments -->
-            <rect id="myelin-1" class="myelin-segment" x="880" y="463" width="120" height="40" rx="10" />
-            <rect id="myelin-2" class="myelin-segment" x="730" y="463" width="120" height="40" rx="10" />
-            <rect id="myelin-3" class="myelin-segment" x="580" y="466" width="120" height="40" rx="10" />
-
-            <!-- Story Slide Segments -->
-            <path id="myelin-4" class="myelin-segment"
-                d="M 460 630 C 435 655, 435 725, 460 750 L 500 750 C 525 725, 525 655, 500 630 Z" />
-            <path id="myelin-5" class="myelin-segment"
-                d="M 440 870 C 415 895, 415 965, 440 990 L 480 990 C 505 965, 505 895, 480 870 Z" />
-            <path id="myelin-6" class="myelin-segment"
-                d="M 485 1240 C 460 1265, 460 1335, 485 1360 L 525 1360 C 550 1335, 550 1265, 525 1240 Z" />
-
-            <!-- Skills Slide Segments -->
-            <path id="myelin-7" class="myelin-segment"
-                d="M 500 1670 C 475 1695, 475 1765, 500 1790 L 540 1790 C 565 1765, 565 1695, 540 1670 Z" />
-            <rect id="myelin-8" class="myelin-segment" x="500" y="1950" width="40" height="100" rx="10" />
-
-            <!-- Projects Slide Segments -->
-            <rect id="myelin-9" class="myelin-segment" x="430" y="2350" width="40" height="100" rx="10" />
-            <rect id="myelin-10" class="myelin-segment" x="420" y="2700" width="40" height="100" rx="10" />
-            <rect id="myelin-11" class="myelin-segment" x="340" y="3050" width="40" height="100" rx="10" />
-
-            <!-- Hobbies Slide Segments -->
-            <rect id="myelin-12" class="myelin-segment" x="345" y="3500" width="40" height="100" rx="10" />
-            <rect id="myelin-13" class="myelin-segment" x="360" y="3850" width="40" height="100" rx="10" />
-
-            <!-- Contact Slide Segment -->
-            <rect id="myelin-14" class="myelin-segment" x="440" y="4150" width="40" height="100" rx="10" />
-
-            <!-- The Main Axon Core (Scroll-driven path that grows and glows) -->
-            <path id="axon-grow-path"
-                d="M 1030 483 L 750 483 C 580 483, 500 520, 480 610 L 460 900 C 450 1100, 440 1200, 490 1350 L 530 1600 C 560 1850, 520 2000, 470 2150 L 450 2550 C 430 2800, 390 2900, 360 3150 L 360 3500 Q 360 3850, 460 4100 L 460 4350"
-                stroke="#829488" stroke-width="2.8" stroke-linecap="round" filter="url(#glow-green)" />
-
-            <!-- Secondary overlapping fiber to give "pencil sketch" line doubling -->
-            <path id="axon-sketch-double"
-                d="M 1030 485 L 750 485 C 578 485, 498 522, 478 612 L 458 852 C 448 972, 438 1082, 488 1202 L 528 1452 C 558 1602, 518 1802, 468 2002 L 448 2402 C 428 2702, 388 3002, 358 3402 L 358 3502 Q 358 3852, 458 4102 L 458 4352"
-                stroke="rgba(130, 148, 136, 0.25)" stroke-width="1.2" stroke-linecap="round" />
-
-            <!-- Collateral Axon Branches branching out at major sections -->
-            <!-- Section: Story Branch (triggers at y = 1350) -->
-            <path class="neural-branch" id="branch-story"
-                d="M 490 1350 Q 320 1380, 240 1420 M 320 1380 Q 280 1400, 210 1410" />
-            <!-- Section: Skills Branch (triggers at y = 2150) -->
-            <path class="neural-branch" id="branch-skills"
-                d="M 470 2150 Q 350 2200, 240 2240 M 350 2200 Q 310 2220, 220 2235" />
-            <!-- Section: Projects Branch (triggers at y = 2900) -->
-            <path class="neural-branch" id="branch-projects"
-                d="M 390 2900 Q 260 3000, 200 3100 M 310 2980 Q 260 3050, 180 3080" />
-            <!-- Section: Hobbies Branch (triggers at y = 3500) -->
-            <path class="neural-branch" id="branch-hobbies"
-                d="M 360 3500 Q 280 3600, 220 3680 M 300 3580 Q 260 3620, 200 3655" />
-
-            <!-- Section: Contact Synaptic Arborization (The End Network triggers at y = 4350) -->
-            <g class="neural-branch" id="branch-contact">
-                <path d="M 460 4350 C 430 4400, 360 4430, 280 4470" />
-                <path d="M 460 4350 C 480 4410, 540 4450, 620 4490" />
-                <path d="M 460 4350 C 450 4420, 420 4470, 410 4530" />
-
-                <!-- Synaptic Terminals Buttons (Glow circles at end of fibers) -->
-                <circle cx="280" cy="4470" r="5" fill="#a2b49e" filter="url(#glow-green)" />
-                <circle cx="620" cy="4490" r="5" fill="#a2b49e" filter="url(#glow-green)" />
-                <circle cx="410" cy="4530" r="5" fill="#a2b49e" filter="url(#glow-green)" />
-            </g>
-
-            <!-- ================= DEEP LEARNING SCHEMATIC ANNOTATIONS (Moved to Left Panel to Avoid Text Interference) ================= -->
-            <g class="notebook-label">
-                <!-- Activation Function Core (Right of Soma, out of text bounds) -->
-                <text x="1230" y="475" text-anchor="middle">f(x) = σ(Wᵀx + b)</text>
-
-                <!-- Input Tensors / Feature vector (Hero left column) -->
-                <text x="90" y="350">INPUT FEATURE TENSORS [x₁...xₙ]</text>
-                <line x1="80" y1="358" x2="320" y2="358" />
-
-                <!-- Gradient Descent / Backprop (Story left column) -->
-                <text x="90" y="1400">GRADIENT DESCENT / BACKPROPAGATION</text>
-                <text x="90" y="1420">∂L/∂W = ∂L/&#8706;a · ∂a/&#8706;z · ∂z/&#8706;W</text>
-                <line x1="80" y1="1428" x2="350" y2="1428" />
-
-                <!-- Optimizer State (Skills left column) -->
-                <text x="90" y="2200">OPTIMIZER: ADAM STATE (η = 0.001)</text>
-                <text x="90" y="2220">θ_t = θ_t-1 - η · m̂_t / (√v̂_t + ε)</text>
-                <line x1="80" y1="2228" x2="330" y2="2228" />
-
-                <!-- Weight Update (Projects left column) -->
-                <text x="90" y="2950">WEIGHT UPDATE TENSORS</text>
-                <text x="90" y="2970">W^(l) ← W^(l) - α · ∇_(W^(l)) L</text>
-                <line x1="80" y1="2978" x2="290" y2="2978" />
-
-                <!-- Output Layer / Activations (Contact left column) -->
-                <text x="90" y="4300">OUTPUT TENSOR ACTIVATIONS</text>
-                <text x="90" y="4320">ŷ = softmax(Wᵀh + b)</text>
-                <line x1="80" y1="4328" x2="260" y2="4328" />
-            </g>
-        </svg>
-    </div>
-
-
-    <!-- ============================================================= -->
-    <!-- CONTENT LAYER                                                 -->
-    <!-- ============================================================= -->
     <main class="hero-container" id="hero">
         <section class="hero-left" id="hero-left">
             <h1 class="hero-title bungee-regular" id="hero-title">
@@ -339,10 +211,8 @@
 
     </main>
 
-    <!-- Scrollable Portfolio Sections (Aligning to Asymmetric Split Grid) -->
     <div class="sections-wrapper" id="sections-wrapper">
 
-        <!-- My Story Section (Updated with Resume Details) -->
         <section class="portfolio-section" id="story">
             <div class="section-left">
                 <h2 class="section-label bungee-regular">[My Story]</h2>
@@ -385,7 +255,6 @@
             </div>
         </section>
 
-        <!-- Skills Section (Updated from Resume Skills) -->
         <section class="portfolio-section" id="skills">
             <div class="section-left">
                 <h2 class="section-label bungee-regular">[Skills]</h2>
@@ -427,7 +296,6 @@
             </div>
         </section>
 
-        <!-- Projects Section (Updated from Resume Projects) -->
         <section class="portfolio-section" id="projects">
             <div class="section-left">
                 <h2 class="section-label bungee-regular">[Projects]</h2>
@@ -435,7 +303,6 @@
             <div class="section-right">
                 <div class="section-content-box">
                     <div class="projects-list">
-                        <!-- Project 1: FlowState AI -->
                         <article class="project-item">
                             <div class="project-header">
                                 <h3 class="project-title bungee-regular">FlowState AI</h3>
@@ -460,7 +327,6 @@
                                 rel="noopener noreferrer">[GitHub Repository]</a>
                         </article>
 
-                        <!-- Project 2: MIDI to Carnatic Converter -->
                         <article class="project-item">
                             <div class="project-header">
                                 <h3 class="project-title bungee-regular">MIDI to Carnatic Converter</h3>
@@ -478,7 +344,6 @@
                                 target="_blank" rel="noopener noreferrer">[GitHub Repository]</a>
                         </article>
 
-                        <!-- Project 3: Smart Multi-Device Surveillance -->
                         <article class="project-item">
                             <div class="project-header">
                                 <h3 class="project-title bungee-regular">Smart Multi-Device Surveillance System</h3>
@@ -499,7 +364,6 @@
             </div>
         </section>
 
-        <!-- Hobbies Section (Updated from Resume Interests) -->
         <section class="portfolio-section" id="hobbies">
             <div class="section-left">
                 <h2 class="section-label bungee-regular">[Hobbies]</h2>
@@ -515,7 +379,6 @@
             </div>
         </section>
 
-        <!-- Contact Section (Updated from Resume Details) -->
         <section class="portfolio-section" id="contact">
             <div class="section-left">
                 <h2 class="section-label bungee-regular">[Contact]</h2>
@@ -528,23 +391,16 @@
                         Use the neural speed dial below.
                     </p>
 
-                    <!-- Contact Directory — vanilla telephone sketch integrated into neuron ecosystem -->
                     <div class="phonebook-widget">
                         <svg class="phone-outline-svg" viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg">
-                            <!-- === DESK PHONE BODY — simple organic rectangle with rounded personality === -->
-                            <!-- Main body outline -->
                             <rect x="20" y="80" width="280" height="120" rx="18" ry="18" fill="none"
                                 stroke="rgba(130, 148, 136, 0.55)" stroke-width="2.0" />
-                            <!-- Inner body sketch line (double-line character) -->
                             <rect x="28" y="88" width="264" height="104" rx="13" ry="13" fill="none"
                                 stroke="rgba(130, 148, 136, 0.2)" stroke-width="0.9" stroke-dasharray="5 3" />
 
-                            <!-- === SCREEN / DISPLAY AREA === -->
                             <rect x="36" y="92" width="145" height="96" rx="8" fill="rgba(6, 11, 8, 0.7)"
                                 stroke="rgba(130, 148, 136, 0.4)" stroke-width="1.2" />
 
-                            <!-- === KEYPAD (3x4 grid of circles — minimal sketch style) === -->
-                            <!-- Row 1 -->
                             <g fill="none" stroke="rgba(130, 148, 136, 0.4)" stroke-width="1.1">
                                 <g class="key-button" data-key="1">
                                     <circle cx="200" cy="111" r="8" />
@@ -562,7 +418,6 @@
                                         fill="rgba(130,148,136,0.7)" text-anchor="middle">3</text>
                                 </g>
                             </g>
-                            <!-- Row 2 -->
                             <g fill="none" stroke="rgba(130, 148, 136, 0.35)" stroke-width="1.0">
                                 <g class="key-button" data-key="4">
                                     <circle cx="200" cy="133" r="8" />
@@ -580,7 +435,6 @@
                                         fill="rgba(130,148,136,0.6)" text-anchor="middle">6</text>
                                 </g>
                             </g>
-                            <!-- Row 3 -->
                             <g fill="none" stroke="rgba(130, 148, 136, 0.3)" stroke-width="0.9">
                                 <g class="key-button" data-key="7">
                                     <circle cx="200" cy="155" r="8" />
@@ -598,7 +452,6 @@
                                         fill="rgba(130,148,136,0.5)" text-anchor="middle">9</text>
                                 </g>
                             </g>
-                            <!-- Row 4 -->
                             <g fill="none" stroke="rgba(130, 148, 136, 0.3)" stroke-width="0.9">
                                 <g class="key-button" data-action="clear">
                                     <circle cx="200" cy="177" r="8" />
@@ -617,39 +470,31 @@
                                 </g>
                             </g>
 
-                            <!-- === HANDSET — organic curved shape, gold accent === -->
-                            <!-- Handset body -->
                             <path d="M 318 72 C 312 52, 348 42, 368 58 C 382 70, 372 98, 356 112
                                      C 348 120, 347 136, 356 144
                                      C 372 158, 382 186, 368 198 C 348 214, 312 204, 318 184
                                      C 328 160, 338 140, 318 114 C 308 100, 310 82, 318 72 Z" fill="none"
                                 stroke="rgba(197, 168, 128, 0.7)" stroke-width="2.0" />
-                            <!-- Handset inner sketch double-line -->
                             <path d="M 325 78 C 320 62, 350 54, 364 66 C 374 76, 365 100, 352 112
                                      C 345 119, 344 138, 352 146
                                      C 365 158, 374 182, 364 194 C 350 206, 320 198, 325 178
                                      C 334 156, 344 138, 325 114 C 317 104, 318 86, 325 78 Z" fill="none"
                                 stroke="rgba(197, 168, 128, 0.22)" stroke-width="0.8" stroke-dasharray="4 3" />
-                            <!-- Earpiece -->
                             <ellipse cx="346" cy="84" rx="11" ry="7" fill="none" stroke="rgba(197, 168, 128, 0.45)"
                                 stroke-width="1.0" />
-                            <!-- Mouthpiece -->
                             <ellipse cx="346" cy="186" rx="11" ry="7" fill="none" stroke="rgba(197, 168, 128, 0.45)"
                                 stroke-width="1.0" />
-                            <!-- Grip lines on handset neck -->
                             <g stroke="rgba(130, 148, 136, 0.3)" stroke-width="0.7">
                                 <line x1="330" y1="128" x2="360" y2="128" />
                                 <line x1="330" y1="134" x2="360" y2="134" />
                                 <line x1="330" y1="140" x2="360" y2="140" />
                             </g>
 
-                            <!-- Cradle notch on body where handset rests -->
                             <path d="M 295 90 C 305 80, 315 84, 316 95" fill="none" stroke="rgba(130, 148, 136, 0.4)"
                                 stroke-width="1.2" />
                             <path d="M 295 178 C 305 188, 315 184, 316 173" fill="none"
                                 stroke="rgba(130, 148, 136, 0.4)" stroke-width="1.2" />
 
-                            <!-- Annotation labels — same style as neuron notebook-label -->
                             <g fill="rgba(220,220,220,0.7)" font-family="Inter, sans-serif" font-size="8"
                                 font-weight="400" letter-spacing="0.08em">
                                 <text x="115" y="58" text-anchor="middle">NEURO-INTERFACE TERMINAL</text>
@@ -660,7 +505,6 @@
 
                         </svg>
 
-                        <!-- Contact Directory — styled HTML inside the display screen bounds -->
                         <div class="contact-directory">
                             <div class="screen-header">
                                 <span class="screen-title bungee-regular">SPEED DIAL</span>

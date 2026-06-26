@@ -261,12 +261,14 @@
             }
         });
     });
-
     // 9. Update Axon Growth Elements (stroke-dashoffsets)
     function updateAxonGrowth(scrollFraction) {
-        // Amplify scroll fraction for earlier path activation — user sees illumination in real-time
-        // Cap at 1.0 so it doesn't overshoot at page bottom
-        const amplified = Math.min(scrollFraction * 1.05, 1.0);
+        // TUNE THIS: Increase to make the green line and myelin sheaths activate faster.
+        // Try 1.5, 1.8, or 2.2 until it matches your scroll position perfectly.
+        const speedMultiplier = 1.4;
+
+        // Amplify scroll fraction for earlier path activation
+        const amplified = Math.min(scrollFraction * speedMultiplier, 1.0);
 
         if (axonPath && pathLength) {
             const drawOffset = pathLength * (1 - amplified);
@@ -613,4 +615,57 @@
             }
         });
     });
+
+    // -------------------------------------------------------------
+    // Optimized Procedural Dendrite Generator (Lag-Free)
+    // -------------------------------------------------------------
+    function generateProceduralDendrites() {
+        const container = document.getElementById('procedural-dendrites');
+        if (!container) return;
+
+        const cx = 1118;
+        const cy = 462;
+        const svgNS = "http://www.w3.org/2000/svg";
+
+        let pathData = "";
+
+        function growBranch(x, y, angle, length, depth) {
+            if (depth === 0) return;
+
+            const curveForce = (Math.random() - 0.5) * 1.5;
+            const endX = x + Math.cos(angle) * length;
+            const endY = y + Math.sin(angle) * length;
+
+            const cpX = x + Math.cos(angle + curveForce) * (length * 0.6);
+            const cpY = y + Math.sin(angle + curveForce) * (length * 0.6);
+
+            pathData += `M ${x} ${y} Q ${cpX} ${cpY} ${endX} ${endY} `;
+
+            const numChildren = depth === 4 ? 3 : Math.floor(Math.random() * 2) + 1;
+
+            for (let i = 0; i < numChildren; i++) {
+                const angleOffset = (Math.random() - 0.5) * 1.4;
+                const newLength = length * (Math.random() * 0.4 + 0.5);
+                growBranch(endX, endY, angle + angleOffset, newLength, depth - 1);
+            }
+        }
+
+        const numRoots = 18;
+        for (let i = 0; i < numRoots; i++) {
+            const baseAngle = (Math.PI * 2 / numRoots) * i;
+            const angle = baseAngle + ((Math.random() - 0.5) * 0.5);
+            const length = Math.random() * 160 + 120;
+            growBranch(cx, cy, angle, length, 4);
+        }
+
+        const web = document.createElementNS(svgNS, "path");
+        web.setAttribute("d", pathData);
+        web.setAttribute("stroke", "#c084fc");
+        web.setAttribute("stroke-width", "1.2");
+        web.setAttribute("fill", "none");
+        web.setAttribute("opacity", "0.55");
+        container.appendChild(web);
+    }
+
+    generateProceduralDendrites();
 })();
