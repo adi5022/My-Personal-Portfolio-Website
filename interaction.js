@@ -339,7 +339,7 @@
     function updateAndDraw() {
         ctx.clearRect(0, 0, width, height);
 
-        // A. Use direct scroll position — no smoothing lag, updates instantly with scroll
+        // A. Use direct scroll position, no smoothing lag, updates instantly with scroll
         const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
         const scrollFraction = maxScroll > 0 ? window.scrollY / maxScroll : 0;
         updateAxonGrowth(scrollFraction);

@@ -40,6 +40,78 @@ html {
     overflow-x: hidden;
 }
 
+/* @keyframes cannot be nested inside a style rule (CSS Nesting spec); the rest of
+   this file is nested inside body {}, so these must stay top-level to actually run. */
+@keyframes organicFloat {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+
+    33% {
+        transform: translate(4px, -6px) scale(1.02) rotate(1deg);
+    }
+
+    66% {
+        transform: translate(-3px, 4px) scale(0.98) rotate(-0.5deg);
+    }
+}
+
+@keyframes parallaxSway {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    100% {
+        transform: rotate(-2deg) scale(1.03);
+    }
+}
+
+@keyframes coreBeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.7;
+        filter: drop-shadow(0 0 10px rgba(192, 132, 252, 0.5));
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: 1;
+        filter: drop-shadow(0 0 25px rgba(216, 180, 254, 0.9));
+    }
+}
+
+@keyframes neuralPulse {
+
+    0%,
+    100% {
+        stroke: rgba(192, 132, 252, 0.55);
+        filter: drop-shadow(0 0 4px rgba(192, 132, 252, 0.35));
+    }
+
+    50% {
+        stroke: rgba(215, 185, 255, 0.85);
+        filter: drop-shadow(0 0 12px rgba(192, 132, 252, 0.8));
+    }
+}
+
+@keyframes revealRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-25px);
+        filter: blur(4px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+        filter: blur(0);
+    }
+}
+
 body {
     width: 100%;
     min-height: 100vh;
@@ -322,7 +394,7 @@ body {
         align-items: flex-start;
     }
 
-    /* Right panel: Slogan & CTA Box — aligns to bottom to leave neuron space */
+    /* Right panel: Slogan & CTA Box, aligns to bottom to leave neuron space */
     .hero-right {
         flex-grow: 1;
         background-color: transparent;
@@ -599,7 +671,7 @@ body {
         filter: drop-shadow(0 0 6px rgba(162, 180, 158, 0.7));
     }
 
-    /* SVG notebook label overrides — ultra-faint, decorative only, never interferes with content */
+    /* SVG notebook label overrides, ultra-faint, decorative only, never interferes with content */
     .notebook-label {
         opacity: 0.35;
         transition: opacity 0.4s ease;
@@ -726,6 +798,15 @@ body {
         flex-wrap: wrap;
         gap: 1rem;
         margin-bottom: 0.4rem;
+    }
+
+    .project-status {
+        font-family: var(--font-body);
+        font-size: 0.7rem;
+        font-weight: 500;
+        color: var(--text-muted);
+        letter-spacing: 0.03em;
+        text-transform: none;
     }
 
     .project-tech {
@@ -992,76 +1073,6 @@ body {
     #soma-group circle {
         transform-origin: 1118px 462px;
         animation: coreBeat 3s ease-in-out infinite;
-    }
-
-    @keyframes organicFloat {
-
-        0%,
-        100% {
-            transform: translate(0, 0) scale(1) rotate(0deg);
-        }
-
-        33% {
-            transform: translate(4px, -6px) scale(1.02) rotate(1deg);
-        }
-
-        66% {
-            transform: translate(-3px, 4px) scale(0.98) rotate(-0.5deg);
-        }
-    }
-
-    @keyframes parallaxSway {
-        0% {
-            transform: rotate(0deg) scale(1);
-        }
-
-        100% {
-            transform: rotate(-2deg) scale(1.03);
-        }
-    }
-
-    @keyframes coreBeat {
-
-        0%,
-        100% {
-            transform: scale(1);
-            opacity: 0.7;
-            filter: drop-shadow(0 0 10px rgba(192, 132, 252, 0.5));
-        }
-
-        50% {
-            transform: scale(1.15);
-            opacity: 1;
-            filter: drop-shadow(0 0 25px rgba(216, 180, 254, 0.9));
-        }
-    }
-
-    @keyframes neuralPulse {
-
-        0%,
-        100% {
-            stroke: rgba(192, 132, 252, 0.55);
-            filter: drop-shadow(0 0 4px rgba(192, 132, 252, 0.35));
-        }
-
-        50% {
-            stroke: rgba(215, 185, 255, 0.85);
-            filter: drop-shadow(0 0 12px rgba(192, 132, 252, 0.8));
-        }
-    }
-
-    @keyframes revealRight {
-        0% {
-            opacity: 0;
-            transform: translateX(-25px);
-            filter: blur(4px);
-        }
-
-        100% {
-            opacity: 1;
-            transform: translateX(0);
-            filter: blur(0);
-        }
     }
 
     @media (max-width: 900px) {

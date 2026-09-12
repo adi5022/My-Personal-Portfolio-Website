@@ -222,12 +222,12 @@
                     <div class="story-profile">
                         <h3 class="subsection-title bungee-regular">Profile</h3>
                         <p class="section-text">
-                            Third-year Computer Science (AI) undergraduate who builds things at the intersection of
-                            rigorous science and working software. My projects range from a cardiovascular digital twin
-                            grounded in peer-reviewed clinical literature to a MIDI-to-Carnatic converter that exists
-                            because I am both a programmer and a music composer. I gravitate toward problems that demand
-                            more than running a model — evidence-based design, clean architecture, and ideas genuinely
-                            worth building.
+                            AI enthusiast with a strong systems-level understanding of modern machine learning
+                            architectures, including retrieval-augmented generation, LLM agents, and mechanistic
+                            interpretability. I focus on system design and architecture, pairing conceptual grounding
+                            in how these systems actually work with AI-assisted engineering to build and iterate on
+                            complex projects efficiently, while building hands-on programming fundamentals in
+                            parallel.
                         </p>
                     </div>
 
@@ -236,18 +236,18 @@
                         <div class="education-timeline">
                             <div class="education-item">
                                 <div class="education-meta">
-                                    <span class="education-year">2023 – Present</span>
+                                    <span class="education-year">2023 – 2027</span>
                                     <h4 class="education-school">Mar Baselios College of Engineering & Technology</h4>
                                 </div>
-                                <p class="education-degree">B.Tech — Computer Science and Engineering (AI) ·
+                                <p class="education-degree">B.Tech, Computer Science and Engineering (AI) ·
                                     Thiruvananthapuram</p>
                             </div>
                             <div class="education-item">
                                 <div class="education-meta">
-                                    <span class="education-year">2020 – 2022</span>
+                                    <span class="education-year">2023</span>
                                     <h4 class="education-school">Loyola School, Sreekariyam</h4>
                                 </div>
-                                <p class="education-degree">Higher Secondary — Bio-Mathematics with Minor in AI</p>
+                                <p class="education-degree">Higher Secondary (12th), CBSE · Thiruvananthapuram</p>
                             </div>
                         </div>
                     </div>
@@ -264,32 +264,15 @@
                     <div class="skills-block">
                         <h3 class="subsection-title bungee-regular">Core Skills</h3>
                         <ul class="skills-grid">
-                            <li><strong>Languages</strong>: Python, C, C++, Java, JavaScript, C#</li>
-                            <li><strong>AI / ML</strong>: Computer Vision, OpenCV, scikit-learn, Gradient Boosting, AI
-                                Agents</li>
-                            <li><strong>Tools</strong>: PyQt6, Plotly, Tkinter, Socket Programming, HTML/CSS</li>
-                            <li><strong>CS Core</strong>: Data Structures & Algorithms, OOP, Operating Systems</li>
-                        </ul>
-                    </div>
-
-                    <div class="certifications-block">
-                        <h3 class="subsection-title bungee-regular">Certifications</h3>
-                        <ul class="certs-list">
-                            <li>
-                                <span class="cert-title">AI Agent Architect</span>
-                                <span class="cert-issuer">IBM SkillsBuild</span>
-                                <span class="cert-date">Aug 2025</span>
-                            </li>
-                            <li>
-                                <span class="cert-title">CS50 Introduction to Python</span>
-                                <span class="cert-issuer">Harvard University (edX)</span>
-                                <span class="cert-date">May 2024</span>
-                            </li>
-                            <li>
-                                <span class="cert-title">Mobile App Development with Flutter</span>
-                                <span class="cert-issuer">Infosys Springboard</span>
-                                <span class="cert-date">Oct 2024</span>
-                            </li>
+                            <li><strong>Core Programming</strong>: Python, C · Learning: C++ (basic), C# (basic)</li>
+                            <li><strong>AI / ML Concepts</strong>: Retrieval-Augmented Generation, LLM Agents, Prompt
+                                Engineering, Mechanistic Interpretability (sparse autoencoders, activation steering,
+                                model editing), Classical ML (regression, gradient boosting), Deep Learning,
+                                Transformer Architecture, Computer Vision</li>
+                            <li><strong>Familiar With</strong>: LangGraph, FAISS, NetworkX, PyTorch, TransformerLens,
+                                SAELens, Flask, Streamlit, PyQt6, Groq API</li>
+                            <li><strong>CS Fundamentals & Tooling</strong>: Data Structures & Algorithms, OOP,
+                                Operating Systems, Git, REST APIs, SQLite</li>
                         </ul>
                     </div>
                 </div>
@@ -312,10 +295,10 @@
                                 progression modelling</p>
                             <ul class="project-details">
                                 <li>Simulates blood pressure trajectory, kidney function (eGFR) decline, and survival
-                                    probability year-by-year over 30 years from 10 clinical inputs — every coefficient
+                                    probability year-by-year over 30 years from 10 clinical inputs; every coefficient
                                     traceable to peer-reviewed literature.</li>
                                 <li>Designed a two-layer Partial Linear Model for eGFR: explicit clinical equations
-                                    (age, sex, sodium load) layered with a Gradient Boosting residual — achieving CV R²
+                                    (age, sex, sodium load) layered with a Gradient Boosting residual, achieving CV R²
                                     of 0.957.</li>
                                 <li>Built ACE Inhibitor intervention with probabilistic adverse-effect simulation;
                                     renders treated vs. untreated divergence via interactive Plotly charts with a
@@ -329,35 +312,73 @@
 
                         <article class="project-item">
                             <div class="project-header">
-                                <h3 class="project-title bungee-regular">MIDI to Carnatic Converter</h3>
-                                <span class="project-tech">Python · Tkinter · mido · pygame</span>
+                                <h3 class="project-title bungee-regular">Mechanistic Intervention of LLMs via Sparse
+                                    Autoencoders <span class="project-status">(Ongoing)</span></h3>
+                                <span class="project-tech">Python · PyTorch · TransformerLens · SAELens · CUDA</span>
                             </div>
-                            <p class="project-tagline">Bridging Western MIDI notation and South Indian classical music
-                                tradition</p>
+                            <p class="project-tagline">Inference-time activation editing to correct factual errors in
+                                LLMs, without retraining</p>
                             <ul class="project-details">
-                                <li>Translates MIDI sequences into Carnatic swaras with automatic note mapping, duration
-                                    analysis, and rule-based raga identification (Mohanam, Kalyani, and others).</li>
-                                <li>Polished Tkinter GUI with dark mode, selectable tonic, real-time playback controls,
-                                    and one-click export — built out of genuine curiosity as a music composer.</li>
+                                <li>Built a research pipeline that edits GPT-2's residual stream along sparse
+                                    autoencoder feature directions to correct factual errors at inference time, with
+                                    no retraining or weight updates, fully reversible since nothing about the model
+                                    itself changes.</li>
+                                <li>Designed a benchmark comparing this approach against activation steering and
+                                    ROME-style weight edits across 22 factual-editing prompts from ROME's CounterFact
+                                    dataset, evaluated across transformer depth (layers 0–11).</li>
+                                <li>Currently building a GPU-batching optimization to reduce the number of forward
+                                    passes required per prompt-layer evaluation; performance gains and equivalence
+                                    against the original sequential approach are still being validated.</li>
+                                <li>Run through structured, session-logged agentic coding workflows (Claude Code),
+                                    with handoff documentation and validation scripts maintained across iterations.</li>
                             </ul>
-                            <a href="https://github.com/adithy7n/midi-to-carnatic-converter" class="nav-link"
+                            <a href="https://github.com/adi5022/Mechanistic-Intervention-of-Large-Language-Models-via-Sparse-AutoEncoders/tree/layer-intervention-benchmark"
+                                class="nav-link" target="_blank" rel="noopener noreferrer">[GitHub Repository]</a>
+                        </article>
+
+                        <article class="project-item">
+                            <div class="project-header">
+                                <h3 class="project-title bungee-regular">GraphRAG Research Assistant</h3>
+                                <span class="project-tech">Python · Flask · FAISS · NetworkX · Groq / Gemini</span>
+                            </div>
+                            <p class="project-tagline">Hybrid vector + knowledge-graph retrieval for relational
+                                questions over research papers, co-built with a teammate</p>
+                            <ul class="project-details">
+                                <li>Co-built a hybrid RAG system for querying scientific literature, combining a
+                                    FAISS vector index with a NetworkX knowledge graph for factual and multi-hop
+                                    relational queries across a corpus of foundational NLP papers (Transformer, BERT,
+                                    RoBERTa, ALBERT, DeBERTa).</li>
+                                <li>Designed the query routing logic that classifies incoming queries and selects
+                                    between vector retrieval, graph retrieval, or a combined pipeline, integrating
+                                    the two independently-built retrieval systems into one.</li>
+                                <li>Built the interactive graph presentation layer: a vis.js graph explorer and
+                                    per-query retrieval traces (route chosen, nodes traversed, latency) for
+                                    transparency, plus smaller fixes across the wider system alongside a teammate.</li>
+                            </ul>
+                            <a href="https://github.com/Tharun-1-6/graph-rag-research-assistant" class="nav-link"
                                 target="_blank" rel="noopener noreferrer">[GitHub Repository]</a>
                         </article>
 
                         <article class="project-item">
                             <div class="project-header">
-                                <h3 class="project-title bungee-regular">Smart Multi-Device Surveillance System</h3>
-                                <span class="project-tech">Python · OpenCV · Socket Programming</span>
+                                <h3 class="project-title bungee-regular">MBAssist AI</h3>
+                                <span class="project-tech">Python · Flask · LangGraph · FAISS · Groq · Sarvam AI</span>
                             </div>
-                            <p class="project-tagline">Real-time multi-camera system connecting smartphone cameras over
-                                shared Wi-Fi</p>
+                            <p class="project-tagline">Multilingual, multi-agent RAG chatbot for MBCET admissions
+                                queries</p>
                             <ul class="project-details">
-                                <li>Real-time multi-camera system connecting smartphone cameras over shared Wi-Fi via
-                                    custom socket architecture with automatic screen integration and dynamic
-                                    disconnection handling.</li>
-                                <li>Motion filtering and object detection with bounding boxes for reliable lightweight
-                                    activity tracking.</li>
+                                <li>Multi-agent retrieval pipeline orchestrated with LangGraph (StateGraph), backed by
+                                    a FAISS/LSA semantic index over institutional documents and weekly-recrawled college
+                                    web content.</li>
+                                <li>Hybrid memory architecture (a verbatim "recent zone" for the last 4 messages,
+                                    plus an LLM-summarized "archive zone") keeps long conversations within token
+                                    limits without losing context.</li>
+                                <li>Bilingual voice input (English/Malayalam) via a radial language-selector UI,
+                                    routing speech-to-text to Groq Whisper or Sarvam AI; multi-tenant API keys let
+                                    users supply their own Groq credentials, keeping hosting costs at zero.</li>
                             </ul>
+                            <a href="https://github.com/adi5022/MBAssist-AI" class="nav-link" target="_blank"
+                                rel="noopener noreferrer">[GitHub Repository]</a>
                         </article>
                     </div>
                 </div>
