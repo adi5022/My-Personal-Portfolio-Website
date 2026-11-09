@@ -386,6 +386,56 @@
                             <a href="https://github.com/adi5022/MBAssist-AI" class="nav-link" target="_blank"
                                 rel="noopener noreferrer">[GitHub Repository]</a>
                         </article>
+
+                        <article class="project-item">
+                            <div class="project-header">
+                                <h3 class="project-title bungee-regular">Sahayi</h3>
+                                <span class="project-tech">Python · Groq · Sarvam AI · SQLite · Telegram · React</span>
+                            </div>
+                            <p class="project-tagline">Malayalam-first Telegram assistant for seniors and people with
+                                disabilities, built at the BIA GenAI Hackathon 2026 with a team of three</p>
+                            <ul class="project-details">
+                                <li>A member sends a voice note, photo or text; Sahayi replies calmly, rates urgency
+                                    from 1 to 3, tags the message (medical, scam, safety, emotional or general) and
+                                    alerts a linked family member. It never contacts emergency services, so family
+                                    decide what to do.</li>
+                                <li>Speech pipeline routes Malayalam and code-mixed audio to Sarvam Saaras and English
+                                    to Groq Whisper, with no silent fallback between them after an early version
+                                    mislabelled Malayalam as Tamil.</li>
+                                <li>Photos are described by two vision models in parallel and reconciled by a judge
+                                    model, and results are labelled verified, single-model or failed. The care agent
+                                    returns Pydantic-validated JSON, and code, not the model, performs every
+                                    action.</li>
+                                <li>Separate working memory and long-term history in SQLite keep topics from
+                                    leaking into each other. Also built scam-help flows, family Q&amp;A and relay
+                                    commands, a scope guard, and a Telegram-style browser simulator with voice input
+                                    and a usage panel. Urgency is model-decided and not formally evaluated.</li>
+                            </ul>
+                            <a href="https://github.com/adi5022/sahayiAI" class="nav-link" target="_blank"
+                                rel="noopener noreferrer">[GitHub Repository]</a>
+                        </article>
+
+                        <article class="project-item">
+                            <div class="project-header">
+                                <h3 class="project-title bungee-regular">tarangAI</h3>
+                                <span class="project-tech">Python · Groq Whisper · Sarvam AI · wav2vec2 · Telegram</span>
+                            </div>
+                            <p class="project-tagline">Telegram bot that reads sentiment in English and
+                                Malayalam-English code-mixed voice notes and text</p>
+                            <ul class="project-details">
+                                <li>Routes voice by language: Groq Whisper checks whether it is English, English goes
+                                    on to Sarvam sentiment, and everything else goes to Sarvam Saaras for code-mixed
+                                    transcription. Sentiment runs on the original text with no translation step.</li>
+                                <li>For English voice, a wav2vec2 emotion model adds arousal and valence. A fusion
+                                    layer never changes the text labels; it can move intensity one step and flag when
+                                    a cheerful voice sits over negative words, which often means sarcasm.</li>
+                                <li>Measured the voice cut-offs instead of guessing them, with a Streamlit tool and a
+                                    guided 25-clip recording script. Calibration covers one speaker and one
+                                    microphone, and there is no formal evaluation yet, so no accuracy is claimed.</li>
+                            </ul>
+                            <a href="https://github.com/adi5022/tarangAI" class="nav-link" target="_blank"
+                                rel="noopener noreferrer">[GitHub Repository]</a>
+                        </article>
                     </div>
                 </div>
             </div>
@@ -400,7 +450,7 @@
                     <p class="section-text">
                         When I'm not writing code or building deep learning models, I am active as a music producer,
                         shaping South Indian classical and Western music compositions. I'm also a writer of fiction and
-                        articles, and I enjoy building IoT & embedded systems.
+                        articles, and I enjoy reading research papers on how language models work internally.
                     </p>
                 </div>
             </div>
