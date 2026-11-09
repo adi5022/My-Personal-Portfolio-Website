@@ -316,23 +316,29 @@
                                     Autoencoders <span class="project-status">(Ongoing)</span></h3>
                                 <span class="project-tech">Python · PyTorch · TransformerLens · SAELens · CUDA</span>
                             </div>
-                            <p class="project-tagline">Inference-time activation editing to correct factual errors in
-                                LLMs, without retraining</p>
+                            <p class="project-tagline">Transient, weight-free editing of GPT-2 Small through sparse
+                                autoencoder features</p>
                             <ul class="project-details">
-                                <li>Built a research pipeline that edits GPT-2's residual stream along sparse
-                                    autoencoder feature directions to correct factual errors at inference time, with
-                                    no retraining or weight updates, fully reversible since nothing about the model
-                                    itself changes.</li>
-                                <li>Designed a benchmark comparing this approach against activation steering and
-                                    ROME-style weight edits across 22 factual-editing prompts from ROME's CounterFact
-                                    dataset, evaluated across transformer depth (layers 0–11).</li>
-                                <li>Currently building a GPU-batching optimization to reduce the number of forward
-                                    passes required per prompt-layer evaluation; performance gains and equivalence
-                                    against the original sequential approach are still being validated.</li>
-                                <li>Run through structured, session-logged agentic coding workflows (Claude Code),
-                                    with handoff documentation and validation scripts maintained across iterations.</li>
+                                <li>Edits GPT-2 Small's residual stream through the features of a pretrained sparse
+                                    autoencoder during one forward pass; the edit disappears when the pass ends and no
+                                    weight changes.</li>
+                                <li>Tuning one multiplier per feature by gradient descent brought the true answer to
+                                    rank 1 on 271 of 300 held-out CounterFact prompts, against 161 for a sweep given
+                                    the same range and 94 for the original settings, with lower side effects and 5 to
+                                    6.5 times less compute.</li>
+                                <li>Built a batched implementation that cut model calls from 186 to 6 per prompt and
+                                    layer, and found that drawing candidate features from all prompt positions raised
+                                    prompts at rank 1 from 4 to 10 of 13.</li>
+                                <li>Ran controls on its own results: an additive edit pushed random, unrelated words
+                                    to rank 1 on 20 of 20 prompts, so rank 1 alone says little about what the model
+                                    knows. Reproduced ROME's official implementation as an outside reference, where a
+                                    weight edit generalised further to reworded prompts (98.5% against 67%, on
+                                    different records).</li>
+                                <li>Side study on carrying an edit from GPT-2 Small to Medium through a linear
+                                    translator: median target rank improved from 142 to 14, but rank 1 on only 8% of
+                                    records. What crosses is a push toward a word, not a fact.</li>
                             </ul>
-                            <a href="https://github.com/adi5022/Mechanistic-Intervention-of-Large-Language-Models-via-Sparse-AutoEncoders/tree/layer-intervention-benchmark"
+                            <a href="https://github.com/adi5022/Mechanistic-Intervention-of-Large-Language-Models-via-Sparse-AutoEncoders"
                                 class="nav-link" target="_blank" rel="noopener noreferrer">[GitHub Repository]</a>
                         </article>
 
